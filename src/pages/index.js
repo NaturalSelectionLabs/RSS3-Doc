@@ -25,7 +25,7 @@ function HomepageHeader() {
         <div className="inline-flex rounded-md shadow">
           <Link
             className="button button--primary button--lg inline-flex items-center justify-center px-5 py-3"
-            to="/docs/intro">
+            to="/docs/category/guide">
             Learn More
           </Link>
         </div>

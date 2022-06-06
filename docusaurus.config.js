@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'RSS3',
   tagline: 'RSS3 is an open information syndication protocol that aims to support efficient and decentralized information distribution in Web3.',
-  url: 'https://rss3.io',
+  url: 'https://docs.rss3.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -56,12 +56,14 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: '/category/guide',
             position: 'right',
             label: 'Docs',
           },
-          { to: '/changelog', label: 'Changelog', position: 'right' },
-          { to: '/assets/RSS3-Whitepaper.pdf', label: 'Whitepaper', position: 'right' },
+          { to: '/changelog', label: '🔄 API Changelog', position: 'right' },
+          { href: 'https://rss3.notion.site/Open-Source-Remote-RSS3-Offering-the-Dopest-Positions-b6fdbffee017449797397f45340de9d4', label: '💌 Join Us', position: 'right' },
+          // TODO: fix the link to the whitepaper
+          { to: './static/assets/RSS3-Whitepaper.pdf', label: 'Whitepaper', position: 'right' },
           {
             href: 'https://github.com/NaturalSelectionLabs/RSS3-Wiki',
             label: 'GitHub',
@@ -76,8 +78,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Docs',
-                to: '/docs/intro',
+                label: 'Products',
+                to: '/docs/category/products',
+              },
+              {
+                label: 'PreGod API',
+                to: 'docs/category/rss3-pregod',
               },
             ],
           },
@@ -85,12 +91,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Discord',
-                href: 'https://discord.gg/rss3',
-              },
-              {
                 label: 'Twitter',
                 href: 'https://twitter.com/rss3_',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discord.gg/rss3',
               },
               {
                 label: 'Telegram',
@@ -103,7 +109,11 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: 'https://rss3.notion.site/',
+                href: 'https://rss3.notion.site/',
+              },
+              {
+                label: 'Branding',
+                to: '/docs/misc/branding',
               },
               {
                 label: 'GitHub',

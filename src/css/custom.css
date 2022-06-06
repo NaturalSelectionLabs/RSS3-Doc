@@ -35,3 +35,11 @@ a>svg {
   display: inline;
   vertical-align: inherit;
 }
+
+img[alt="powered by RSS3"] {
+  width: 200px;
+}
+
+img[alt="auxiliary logo"] {
+  width: 200px;
+}

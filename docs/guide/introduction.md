@@ -1,12 +1,11 @@
 ---
 sidebar_position: 1
+description: An introduction to RSS3
 ---
 
 # Introduction
 
-<p align="center">
-    <img src="/img/logo.gif" />
-</p>
+![RSS3 logo gif](/img/logo.gif)
 
 > RSS3 is an open information syndication protocol that aims to support efficient and decentralized information distribution in Web3.
 
@@ -23,9 +22,7 @@ Derived from the best out of RSS, RSS3 is an open information syndication protoc
 Extended Reading:
 
 - [Here comes RSS3](https://rss3.notion.site/1-Here-comes-RSS3-501aa9df6dba40caae0a53eb2de6f060)
-- [What is the relationship between RSS3 and RSS?](./faq#q-what-is-the-relationship-between-rss3-and-the-applications-revery-and-cheers)
-- [Is RSS3 a SocialFi?](./faq#q-is-rss3-a-socialfi)
+- [What is the relationship between RSS3 and RSS?](../misc/faq#q-what-is-the-relationship-between-rss3-and-the-applications-revery-and-cheers)
+- [Is RSS3 a SocialFi?](../misc/faq#q-is-rss3-a-socialfi)
 
 ## How RSS3 works
-
-- [RSS3 Whitepaper](/assets/RSS3-Whitepaper.pdf)
