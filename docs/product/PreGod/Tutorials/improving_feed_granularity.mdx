@@ -4,7 +4,6 @@ description: Improving Feed Granularity
 ---
 
 import Tabs from '@theme/Tabs';
-
 import TabItem from '@theme/TabItem';
 
 # Improving Feed Granularity
@@ -30,7 +29,7 @@ In your application, remember to handle the decimal places `metadata.decimal` fo
 In the case of NFTs, we can label notes with the following actions:
 
 <Tabs>
-  <TabItem value="a" label="Mint/Buy">
+  <TabItem value="NFTmintBuy" label="Mint/Buy">
 
 When `action[0].metadata.from` is "0x0000000000000000000000000000000000000000"
 
@@ -223,7 +222,7 @@ Otherwise
 </details>
 
 </TabItem>
-  <TabItem value="b" label="Send/Burn">
+  <TabItem value="NFTsendBurn" label="Send/Burn">
   
   When `action[0].metadata.from` is the instance itself
 

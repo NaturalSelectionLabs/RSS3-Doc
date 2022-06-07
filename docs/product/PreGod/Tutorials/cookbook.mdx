@@ -2,6 +2,10 @@
 sidebar_position: 2
 description: A cookbook for PreGod
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # API Cookbook
 
 The cookbook demonstrates some common use case scenarios of the APIs. Take these examples for a spin yourself for inspiration getting started with PreGod.
@@ -15,7 +19,10 @@ Supposedly that DIYgod `0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944` (address) wa
 https://pregod.rss3.dev/v0.4.0/account:{**address**}@{**platform**}/notes?tags={**tag1**}&exclude_tags={**tag2**}
 <!-- markdownlint-enable MD034 -->
 
-### Request
+There are many filtering options available to further customize the result, please refer to the [API Specification](#api-specification).
+
+<Tabs>
+  <TabItem value="reqGet" label="Request">
 
 And send the constructed query, here we use curl:
 
@@ -25,7 +32,9 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-### Response
+</TabItem>
+
+  <TabItem value="resGet" label="Response">
 
 A successful query should return a response with the following data:
 
@@ -138,13 +147,15 @@ From the response we can see that a list of chronologically ordered Notes contai
 
 </details>
 
-There are many filtering options available to further customize the result, please refer to the [API Specification](#api-specification).
+</TabItem>
+</Tabs>
 
 ## Get Notes by a list of Instances
 
 If now DIYgod wants to check the feed of his friends Songkeys and Henry, he can use PreGod's `POST` endpoint that returns a list of `Note` for multiple instances.
 
-### Request
+<Tabs>
+  <TabItem value="reqPost" label="Request">
 
 A request body can be formed in this way:
 
@@ -184,7 +195,9 @@ curl -X 'POST' \
 }'
 ```
 
-### Response
+</TabItem>
+
+  <TabItem value="resPost" label="Response">
 
 A successful query should return a response with the following data:
 
@@ -307,6 +320,9 @@ A successful query should return a response with the following data:
 The response contains a list of Notes belonging to Songkeys and Henry, includes only `NFT` and excludes `POAP`, in a chronologically order.
 
 </details>
+
+</TabItem>
+</Tabs>
 
 You are now familiar with PreGod's APIs, you can try them out in the [API Specification](#api-specification) by expanding the API and clicking on `Try it out`.
 
