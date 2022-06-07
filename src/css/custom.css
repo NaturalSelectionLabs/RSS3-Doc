@@ -36,10 +36,11 @@ a>svg {
   vertical-align: inherit;
 }
 
-img[alt="powered by RSS3"] {
+img[alt="powered by RSS3"],
+img[alt="auxiliary logo"] {
   width: 200px;
 }
 
-img[alt="auxiliary logo"] {
-  width: 200px;
+code {
+  vertical-align: inherit;
 }
