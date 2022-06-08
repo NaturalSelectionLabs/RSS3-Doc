@@ -25,7 +25,7 @@
         "tags": [
           "Note"
         ],
-        "summary": "Get Notes of an instance.",
+        "summary": "Get Notes of an instance",
         "description": "Returns a list of Notes.",
         "operationId": "getNotesByInstance",
         "parameters": [
@@ -80,9 +80,15 @@
             "in": "query",
             "description": "Include Notes by tags.",
             "required": false,
-            "example": "NFT",
+            "example": "NFT,POAP",
+            "style": "form",
+            "explode": true,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "$ref": "#/components/schemas/Tags"
+              }
             }
           },
           {
@@ -90,9 +96,15 @@
             "in": "query",
             "description": "Filter out Notes by tags.",
             "required": false,
-            "example": "POAP",
+            "example": "NFT,POAP",
+            "style": "form",
+            "explode": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "$ref": "#/components/schemas/Tags"
+              }
             }
           },
           {
@@ -102,16 +114,7 @@
             "required": false,
             "example": "Ethereum NFT",
             "schema": {
-              "type": "string",
-              "enum": [
-                "Crossbell",
-                "Ethereum",
-                "Polygon",
-                "BNB Smart Chain",
-                "zkSync",
-                "Mirror Entry",
-                "Gitcoin Contribution"
-              ]
+              "$ref": "#/components/schemas/Sources"
             }
           }
         ],
@@ -121,14 +124,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GetResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/InvalidRequest"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/GetResponse"
+                }
+              }
+            }
+          },
+          "*": {
+            "description": "An invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidRequest"
                 }
               }
             }
@@ -141,7 +147,7 @@
         "tags": [
           "Note"
         ],
-        "summary": "Get Notes by an instance list.",
+        "summary": "Get Notes by an instance list",
         "description": "Returns a list of Notes.",
         "operationId": "getNotesByInstanceList",
         "requestBody": {
@@ -149,18 +155,21 @@
         },
         "responses": {
           "200": {
-            "description": "valid request",
+            "description": "A valid request",
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PostResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/InvalidRequest"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PostResponse"
+                }
+              }
+            }
+          },
+          "*": {
+            "description": "An invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidRequest"
                 }
               }
             }
@@ -325,10 +334,7 @@
           "tags": {
             "type": "array",
             "items": {
-              "type": "string",
-              "example": [
-                "NFT"
-              ]
+              "$ref": "#/components/schemas/Tags"
             }
           },
           "authors": {
@@ -429,6 +435,26 @@
             "example": "The Genesis RSS3 Avatar NFT"
           }
         }
+      },
+      "Sources": {
+        "type": "string",
+        "enum": [
+          "Ethereum ETH",
+          "Ethereum ERC20",
+          "Ethereum NFT",
+          "Mirror Entry",
+          "Gitcoin Contribution"
+        ]
+      },
+      "Tags": {
+        "type": "string",
+        "enum": [
+          "NFT",
+          "Token",
+          "POAP",
+          "Gitcoin",
+          "Mirror Entry"
+        ]
       }
     },
     "requestBodies": {
@@ -446,8 +472,8 @@
                   "type": "array",
                   "description": "The list of RSS3URIs",
                   "example": [
-                    "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum",
-                    "rss3://account:0x827431510a5D249cE4fdB7F00C83a3353F471848@ethereum"
+                    "0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944",
+                    "0x827431510a5D249cE4fdB7F00C83a3353F471848"
                   ]
                 },
                 "last_identifier": {
@@ -463,34 +489,36 @@
                   "example": 10
                 },
                 "tags": {
-                  "type": "array",
                   "description": "Include notes by tags.",
+                  "type": "array",
                   "example": [
-                    "NFT"
-                  ]
+                    "NFT",
+                    "Token"
+                  ],
+                  "schema": {
+                    "$ref": "#/components/schemas/Tags"
+                  }
                 },
                 "exclude_tags": {
                   "type": "array",
                   "description": "Filter out notes by tags.",
                   "example": [
                     "POAP"
-                  ]
+                  ],
+                  "schema": {
+                    "$ref": "#/components/schemas/Tags"
+                  }
                 },
                 "item_sources": {
                   "type": "array",
                   "description": "Include Notes by indexing sources.",
                   "example": [
-                    "Ethereum NFT"
+                    "Ethereum NFT",
+                    "Ethereum Token"
                   ],
-                  "enum": [
-                    "Crossbell",
-                    "Ethereum",
-                    "Polygon",
-                    "BNB Smart Chain",
-                    "zkSync",
-                    "Mirror Entry",
-                    "Gitcoin Contribution"
-                  ]
+                  "schema": {
+                    "$ref": "#/components/schemas/Sources"
+                  }
                 }
               }
             }
