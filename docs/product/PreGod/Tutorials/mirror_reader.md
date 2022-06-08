@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-description: A cookbook for PreGod
+description: A simple Mirror.xyz reader built with PreGod
 ---
 # Buidl a Mirror Reader in 5 minutes
 
