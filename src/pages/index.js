@@ -1,14 +1,14 @@
 import React from "react";
-import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function HomepageHeader() {
   return (
     <div className="text--center">
-      <img className={styles.hero} src="/img/logo.gif" />
+      <img className={styles.hero} src={useBaseUrl("/img/logo.gif")} />
       <div className="container">
         <div className="hero__subtitle">
           <span className="font-extrabold text--primary">Open&nbsp;</span>
