@@ -1,12 +1,10 @@
 ---
 sidebar_position: 3
-description: Improving Feed Granularity
+title: Improving Feed Granularity
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-# Improving Feed Granularity
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 While PreGod provides a set of simple APIs that returns the feed in a uniform format, the possibility behind is limitless. Here we list some aggregations to improve the feed's granularity.
 
@@ -44,78 +42,74 @@ When `action[0].metadata.from` is "0x0000000000000000000000000000000000000000"
 
 ```json
 {
-    "action": [
-        // note 1
+  "action": [
+    // note 1
+    {
+      "identifier": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum",
+      "date_created": "2022-04-07T08:58:50.000Z",
+      "date_updated": "2022-04-07T08:58:50.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242",
+        "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1021",
+        "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1021"
+      ],
+      "links": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum/links",
+      "backlinks": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum/backlinks",
+      "tags": ["NFT"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "title": "The Genesis RSS3 Avatar NFT #1021",
+      "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
+      "attachments": [
         {
-            "identifier": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum",
-            "date_created": "2022-04-07T08:58:50.000Z",
-            "date_updated": "2022-04-07T08:58:50.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242",
-                "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1021",
-                "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1021"
-            ],
-            "links": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum/links",
-            "backlinks": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021@ethereum/backlinks",
-            "tags": [
-                "NFT"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "title": "The Genesis RSS3 Avatar NFT #1021",
-            "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
-            "attachments": [
-                {
-                    "type": "preview",
-                    "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1021.png",
-                    "mime_type": ""
-                }
-            ],
-            "source": "Ethereum NFT",
-            "metadata": {
-                "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
-                "collection_name": "The Genesis RSS3 Avatar NFT",
-                "contract_type": "ERC721",
-                "from": "0x0000000000000000000000000000000000000000",
-                "log_index": "151",
-                "network": "ethereum",
-                "proof": "0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021",
-                "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "token_id": "1021",
-                "token_standard": "ERC721",
-                "token_symbol": "The Genesis RSS3 Avatar NFT"
-            }
-        },
-        // note 2
-        {
-            "identifier": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth",
-            "date_created": "2022-04-07T08:58:50.000Z",
-            "date_updated": "2022-04-07T08:58:50.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242"
-            ],
-            "links": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth/links",
-            "backlinks": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth/backlinks",
-            "tags": [
-                "ETH"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum ETH",
-            "metadata": {
-                "amount": "0",
-                "decimal": 18,
-                "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "network": "ethereum",
-                "proof": "0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0",
-                "to": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
-                "token_standard": "Native",
-                "token_symbol": "ETH",
-            }
+          "type": "preview",
+          "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1021.png",
+          "mime_type": ""
         }
-    ]
+      ],
+      "source": "Ethereum NFT",
+      "metadata": {
+        "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
+        "collection_name": "The Genesis RSS3 Avatar NFT",
+        "contract_type": "ERC721",
+        "from": "0x0000000000000000000000000000000000000000",
+        "log_index": "151",
+        "network": "ethereum",
+        "proof": "0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-151-1021",
+        "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "token_id": "1021",
+        "token_standard": "ERC721",
+        "token_symbol": "The Genesis RSS3 Avatar NFT"
+      }
+    },
+    // note 2
+    {
+      "identifier": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth",
+      "date_created": "2022-04-07T08:58:50.000Z",
+      "date_updated": "2022-04-07T08:58:50.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242"
+      ],
+      "links": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth/links",
+      "backlinks": "rss3://note:0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0@ethereum#eth/backlinks",
+      "tags": ["ETH"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum ETH",
+      "metadata": {
+        "amount": "0",
+        "decimal": 18,
+        "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "network": "ethereum",
+        "proof": "0x6e8d87930ae858aca057cbd33d3e6f2d941b2c4ae7b0c46a04c3a280e4c26242-0",
+        "to": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
+        "token_standard": "Native",
+        "token_symbol": "ETH"
+      }
+    }
+  ]
 }
 ```
 
@@ -137,84 +131,80 @@ Otherwise
 
 ```json
 {
-    "action": [
-        // note 1
+  "action": [
+    // note 1
+    {
+      "identifier": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum",
+      "date_created": "2022-04-19T02:00:57.000Z",
+      "date_updated": "2022-04-19T02:00:57.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d",
+        "https://etherscan.io/nft/0x5aa4ded4b20c84669da2157715f6d681f2516d4c/340",
+        "https://opensea.io/assets/0x5aa4ded4b20c84669da2157715f6d681f2516d4c/340"
+      ],
+      "links": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum/links",
+      "backlinks": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum/backlinks",
+      "tags": ["NFT"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "title": "SpendeePiggy #340",
+      "summary": "SpendeePiggy token unlocks all the Premium features of award-winning Spendee apps. Unleash the power of financial wisdom by holding SpendeePiggy token in your NFT collection. Spendee helps millions of users be on top of their finances. See all your money, cryptocurrencies, NFTs and other assets in one place and always receive custom-tailored recommendations. Check smart product tips which guarantee you will never miss cool new projects you should know about and have the information odds always in your favour. All of this is carefully crafted in an award-winning, user-friendly, fresh design. Join millions of others in our revolution of making everyone's life wealthier.",
+      "attachments": [
         {
-            "identifier": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum",
-            "date_created": "2022-04-19T02:00:57.000Z",
-            "date_updated": "2022-04-19T02:00:57.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d",
-                "https://etherscan.io/nft/0x5aa4ded4b20c84669da2157715f6d681f2516d4c/340",
-                "https://opensea.io/assets/0x5aa4ded4b20c84669da2157715f6d681f2516d4c/340"
-            ],
-            "links": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum/links",
-            "backlinks": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340@ethereum/backlinks",
-            "tags": [
-                "NFT"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "title": "SpendeePiggy #340",
-            "summary": "SpendeePiggy token unlocks all the Premium features of award-winning Spendee apps. Unleash the power of financial wisdom by holding SpendeePiggy token in your NFT collection. Spendee helps millions of users be on top of their finances. See all your money, cryptocurrencies, NFTs and other assets in one place and always receive custom-tailored recommendations. Check smart product tips which guarantee you will never miss cool new projects you should know about and have the information odds always in your favour. All of this is carefully crafted in an award-winning, user-friendly, fresh design. Join millions of others in our revolution of making everyone's life wealthier.",
-            "attachments": [
-                {
-                    "type": "preview",
-                    "address": "https://storage.googleapis.com/nft.spendee.com/3191573496/340.png",
-                    "mime_type": ""
-                },
-                {
-                    "type": "attributes",
-                    "content": "[{\"trait_type\":\"Supply\",\"value\":\"Fixed\"},{\"trait_type\":\"Background\",\"value\":\"Green\"},{\"trait_type\":\"Seating\",\"value\":\"Comfy Couch\"},{\"trait_type\":\"Eyes\",\"value\":\"Lashes\"},{\"trait_type\":\"Currency\",\"value\":\"1 Ethereum\"},{\"trait_type\":\"Cheeks\",\"value\":\"None\"},{\"trait_type\":\"Accessories\",\"value\":\"Earphones\"},{\"trait_type\":\"Mouth\",\"value\":\"None\"},{\"trait_type\":\"Personality\",\"value\":\"Budgeter\"},{\"trait_type\":\"Bubble Gum\",\"value\":\"None\"}]",
-                    "mime_type": "text/json"
-                }
-            ],
-            "source": "Ethereum NFT",
-            "metadata": {
-                "collection_address": "0x5aa4ded4b20c84669da2157715f6d681f2516d4c",
-                "collection_name": "SpendeePiggy",
-                "contract_type": "ERC721",
-                "from": "0x678d2019c15f5faa965b3015ac920885ebfada96",
-                "log_index": "264",
-                "network": "ethereum",
-                "proof": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340",
-                "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "token_id": "340",
-                "token_standard": "ERC721",
-                "token_symbol": "SPIGGY"
-            }
+          "type": "preview",
+          "address": "https://storage.googleapis.com/nft.spendee.com/3191573496/340.png",
+          "mime_type": ""
         },
-        // note 2
         {
-            "identifier": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth",
-            "date_created": "2022-04-19T02:00:57.000Z",
-            "date_updated": "2022-04-19T02:00:57.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d"
-            ],
-            "links": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth/links",
-            "backlinks": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth/backlinks",
-            "tags": [
-                "ETH"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum ETH",
-            "metadata": {
-                "amount": "35000000000000000",
-                "decimal": 18,
-                "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "network": "ethereum",
-                "proof": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0",
-                "to": "0x7f268357a8c2552623316e2562d90e642bb538e5",
-                "token_standard": "Native",
-                "token_symbol": "ETH",
-                "transaction_hash": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d"
-            }
+          "type": "attributes",
+          "content": "[{\"trait_type\":\"Supply\",\"value\":\"Fixed\"},{\"trait_type\":\"Background\",\"value\":\"Green\"},{\"trait_type\":\"Seating\",\"value\":\"Comfy Couch\"},{\"trait_type\":\"Eyes\",\"value\":\"Lashes\"},{\"trait_type\":\"Currency\",\"value\":\"1 Ethereum\"},{\"trait_type\":\"Cheeks\",\"value\":\"None\"},{\"trait_type\":\"Accessories\",\"value\":\"Earphones\"},{\"trait_type\":\"Mouth\",\"value\":\"None\"},{\"trait_type\":\"Personality\",\"value\":\"Budgeter\"},{\"trait_type\":\"Bubble Gum\",\"value\":\"None\"}]",
+          "mime_type": "text/json"
         }
-    ]
+      ],
+      "source": "Ethereum NFT",
+      "metadata": {
+        "collection_address": "0x5aa4ded4b20c84669da2157715f6d681f2516d4c",
+        "collection_name": "SpendeePiggy",
+        "contract_type": "ERC721",
+        "from": "0x678d2019c15f5faa965b3015ac920885ebfada96",
+        "log_index": "264",
+        "network": "ethereum",
+        "proof": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-264-340",
+        "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "token_id": "340",
+        "token_standard": "ERC721",
+        "token_symbol": "SPIGGY"
+      }
+    },
+    // note 2
+    {
+      "identifier": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth",
+      "date_created": "2022-04-19T02:00:57.000Z",
+      "date_updated": "2022-04-19T02:00:57.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d"
+      ],
+      "links": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth/links",
+      "backlinks": "rss3://note:0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0@ethereum#eth/backlinks",
+      "tags": ["ETH"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum ETH",
+      "metadata": {
+        "amount": "35000000000000000",
+        "decimal": 18,
+        "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "network": "ethereum",
+        "proof": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d-0",
+        "to": "0x7f268357a8c2552623316e2562d90e642bb538e5",
+        "token_standard": "Native",
+        "token_symbol": "ETH",
+        "transaction_hash": "0xddcb6cbdd6d4a38d0e0c12a763193ad3bd93b62493bc8e17c280494b3c33cb5d"
+      }
+    }
+  ]
 }
 ```
 
@@ -237,78 +227,74 @@ Otherwise
 
 ```json
 {
-    "action": [
-        // note 1
+  "action": [
+    // note 1
+    {
+      "identifier": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum",
+      "date_created": "2022-04-26T12:40:44.000Z",
+      "date_updated": "2022-04-26T12:40:44.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34",
+        "https://etherscan.io/nft/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/432",
+        "https://opensea.io/assets/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/432"
+      ],
+      "links": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum/links",
+      "backlinks": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum/backlinks",
+      "tags": ["NFT"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum NFT",
+      "metadata": {
+        "collection_address": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
+        "collection_name": "",
+        "contract_type": "ERC721",
+        "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "log_index": "431",
+        "network": "ethereum",
+        "proof": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432",
+        "to": "0x9b708b7fd7d8126c72306bd631640c7206351dae",
+        "token_id": "432",
+        "token_standard": "ERC721",
+        "token_symbol": ""
+      },
+      "title": "RSS3 Whitepaper v1.0",
+      "summary": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
+      "attachments": [
         {
-            "identifier": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum",
-            "date_created": "2022-04-26T12:40:44.000Z",
-            "date_updated": "2022-04-26T12:40:44.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34",
-                "https://etherscan.io/nft/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/432",
-                "https://opensea.io/assets/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/432"
-            ],
-            "links": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum/links",
-            "backlinks": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432@ethereum/backlinks",
-            "tags": [
-                "NFT"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum NFT",
-            "metadata": {
-                "collection_address": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
-                "collection_name": "",
-                "contract_type": "ERC721",
-                "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "log_index": "431",
-                "network": "ethereum",
-                "proof": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-431-432",
-                "to": "0x9b708b7fd7d8126c72306bd631640c7206351dae",
-                "token_id": "432",
-                "token_standard": "ERC721",
-                "token_symbol": ""
-            },
-            "title": "RSS3 Whitepaper v1.0",
-            "summary": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
-            "attachments": [
-                {
-                    "type": "preview",
-                    "address": "ipfs://bafybeihfp6p3hhtv5kh4ntm6f6oj23hcdm7jwlcaoc7tmzq7gg4fdlvl6y/rss3-whitepaper-no-432.png"
-                }
-            ]
-        },
-        // note 2
-        {
-            "identifier": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth",
-            "date_created": "2022-04-26T12:40:44.000Z",
-            "date_updated": "2022-04-26T12:40:44.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34"
-            ],
-            "links": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth/links",
-            "backlinks": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth/backlinks",
-            "tags": [
-                "ETH"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum ETH",
-            "metadata": {
-                "amount": "0",
-                "decimal": 18,
-                "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "network": "ethereum",
-                "proof": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0",
-                "to": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
-                "token_standard": "Native",
-                "token_symbol": "ETH",
-                "transaction_hash": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34"
-            }
+          "type": "preview",
+          "address": "ipfs://bafybeihfp6p3hhtv5kh4ntm6f6oj23hcdm7jwlcaoc7tmzq7gg4fdlvl6y/rss3-whitepaper-no-432.png"
         }
-    ]
+      ]
+    },
+    // note 2
+    {
+      "identifier": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth",
+      "date_created": "2022-04-26T12:40:44.000Z",
+      "date_updated": "2022-04-26T12:40:44.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34"
+      ],
+      "links": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth/links",
+      "backlinks": "rss3://note:0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0@ethereum#eth/backlinks",
+      "tags": ["ETH"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum ETH",
+      "metadata": {
+        "amount": "0",
+        "decimal": 18,
+        "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "network": "ethereum",
+        "proof": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34-0",
+        "to": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
+        "token_standard": "Native",
+        "token_symbol": "ETH",
+        "transaction_hash": "0xa40536a0d031de25fc588c40db5e6f4cdb08aae796d783dae4d359842c5bac34"
+      }
+    }
+  ]
 }
 ```
 
@@ -342,67 +328,63 @@ For ERC-20 tokens, we can easily use `metadata.from` and `metadata.to` to catego
 
 ```json
 {
-    "action": [
-        // note 1
-        {
-            "identifier": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb",
-            "date_created": "2022-05-31T23:01:17.000Z",
-            "date_updated": "2022-05-31T23:01:17.000Z",
-            "related_urls": [
-                "https://bscscan.com/tx/0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
-            ],
-            "links": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb/links",
-            "backlinks": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb/backlinks",
-            "tags": [
-                "Token"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum ERC20",
-            "metadata": {
-                "amount": "44358387066077239745",
-                "decimal": 18,
-                "from": "0x0000000000000000000000000000000000000000",
-                "network": "bnb",
-                "proof": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1",
-                "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "token_address": "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
-                "token_standard": "ERC20",
-                "token_symbol": "Cake-LP",
-                "transaction_hash": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
-            }
-        },
-        // note 2
-        {
-            "identifier": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth",
-            "date_created": "2022-05-31T23:01:17.000Z",
-            "date_updated": "2022-05-31T23:01:17.000Z",
-            "related_urls": [
-                "https://etherscan.io/tx/0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
-            ],
-            "links": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth/links",
-            "backlinks": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth/backlinks",
-            "tags": [
-                "ETH"
-            ],
-            "authors": [
-                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-            ],
-            "source": "Ethereum ETH",
-            "metadata": {
-                "amount": "3186817143614569000",
-                "decimal": 18,
-                "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                "network": "bnb",
-                "proof": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0",
-                "to": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
-                "token_standard": "Native",
-                "token_symbol": "BNB",
-                "transaction_hash": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
-            }
-        }
-    ]
+  "action": [
+    // note 1
+    {
+      "identifier": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb",
+      "date_created": "2022-05-31T23:01:17.000Z",
+      "date_updated": "2022-05-31T23:01:17.000Z",
+      "related_urls": [
+        "https://bscscan.com/tx/0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
+      ],
+      "links": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb/links",
+      "backlinks": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1@bnb/backlinks",
+      "tags": ["Token"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum ERC20",
+      "metadata": {
+        "amount": "44358387066077239745",
+        "decimal": 18,
+        "from": "0x0000000000000000000000000000000000000000",
+        "network": "bnb",
+        "proof": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-1",
+        "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "token_address": "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
+        "token_standard": "ERC20",
+        "token_symbol": "Cake-LP",
+        "transaction_hash": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
+      }
+    },
+    // note 2
+    {
+      "identifier": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth",
+      "date_created": "2022-05-31T23:01:17.000Z",
+      "date_updated": "2022-05-31T23:01:17.000Z",
+      "related_urls": [
+        "https://etherscan.io/tx/0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
+      ],
+      "links": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth/links",
+      "backlinks": "rss3://note:0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0@bnb#eth/backlinks",
+      "tags": ["ETH"],
+      "authors": [
+        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+      ],
+      "source": "Ethereum ETH",
+      "metadata": {
+        "amount": "3186817143614569000",
+        "decimal": 18,
+        "from": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+        "network": "bnb",
+        "proof": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74-0",
+        "to": "0x10ed43c718714eb63d5aa57b78b54704e256024e",
+        "token_standard": "Native",
+        "token_symbol": "BNB",
+        "transaction_hash": "0xeadaeed1d79c557f82da3f09350421067b8b932c8b591e8b3345f5940639eb74"
+      }
+    }
+  ]
 }
 ```
 
@@ -424,30 +406,44 @@ A sample POAP note is structured as follows:
 
 ```json
 {
-    "identifier": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis",
-    "date_created": "2022-04-06T00:00:00.000Z",
-    "date_updated": "2022-04-06T00:00:00.000Z",
-    "related_urls": ["https://app.poap.xyz/token/4642545"],
-    "links": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis/links",
-    "backlinks": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis/backlinks",
-    "tags": ["NFT", "POAP"],
-    "authors": ["rss3://account:0x08d66b34054a174841e2361bd4746ff9f4905cc2@ethereum"],
-    "title": "RSS3 Aries Meetup - 2022",
-    "summary": "The RSS3 2022 Q2 Internal Meeting",
-    "attachments": [
-        { "type": "preview", "address": "https://assets.poap.xyz/rss3-aries-meetup-2022-2022-logo-1649235765400.png", "mime_type": "text/html; charset=UTF-8" },
-        { "type": "external_url", "mime_type": "text/uri-list" },
-        { "type": "start_date", "content": "06-Apr-2022", "mime_type": "text/plain" },
-        { "type": "end_date", "content": "06-Apr-2022", "mime_type": "text/plain" },
-        { "type": "expiry_date", "content": "06-May-2022", "mime_type": "text/plain" }
-    ],
-    "source": "Ethereum NFT",
-    "metadata": {
-        "from": "0x0",
-        "network": "gnosis",
-        "proof": "0x22C1f6050E56d2876009903609a2cC3fEf83B415-4642545",
-        "to": "0x08d66b34054a174841e2361bd4746ff9f4905cc2"
+  "identifier": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis",
+  "date_created": "2022-04-06T00:00:00.000Z",
+  "date_updated": "2022-04-06T00:00:00.000Z",
+  "related_urls": ["https://app.poap.xyz/token/4642545"],
+  "links": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis/links",
+  "backlinks": "rss3://note:0x22c1f6050e56d2876009903609a2cc3fef83b415-4642545@gnosis/backlinks",
+  "tags": ["NFT", "POAP"],
+  "authors": [
+    "rss3://account:0x08d66b34054a174841e2361bd4746ff9f4905cc2@ethereum"
+  ],
+  "title": "RSS3 Aries Meetup - 2022",
+  "summary": "The RSS3 2022 Q2 Internal Meeting",
+  "attachments": [
+    {
+      "type": "preview",
+      "address": "https://assets.poap.xyz/rss3-aries-meetup-2022-2022-logo-1649235765400.png",
+      "mime_type": "text/html; charset=UTF-8"
+    },
+    { "type": "external_url", "mime_type": "text/uri-list" },
+    {
+      "type": "start_date",
+      "content": "06-Apr-2022",
+      "mime_type": "text/plain"
+    },
+    { "type": "end_date", "content": "06-Apr-2022", "mime_type": "text/plain" },
+    {
+      "type": "expiry_date",
+      "content": "06-May-2022",
+      "mime_type": "text/plain"
     }
+  ],
+  "source": "Ethereum NFT",
+  "metadata": {
+    "from": "0x0",
+    "network": "gnosis",
+    "proof": "0x22C1f6050E56d2876009903609a2cC3fEf83B415-4642545",
+    "to": "0x08d66b34054a174841e2361bd4746ff9f4905cc2"
+  }
 }
 ```
 
@@ -469,53 +465,50 @@ A sample Donation note is structured as follows:
 
 ```json
 {
-    "identifier": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon",
-    "date_created": "2021-12-16T02:31:29.000Z",
-    "date_updated": "2021-12-16T02:31:29.000Z",
-    "related_urls": [
-        "https://polygonscan.com/tx/0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d",
-        "https://gitcoin.co/grants3380/effectiveamlorg-decentralize-knowledge"
-    ],
-    "links": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon/links",
-    "backlinks": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon/backlinks",
-    "tags": [
-        "Donation",
-        "Gitcoin"
-    ],
-    "authors": [
-        "rss3://account:0xc560eb6fd0c2eb80df50e5e06715295ae1205049@ethereum"
-    ],
-    "title": "EffectiveAML.org: Decentralize knowledge",
-    "summary": "Scientists, and even the UN, have declared anti-money laundering rules profoundly ineffective, and harmful to society, yet the AML bubble ignores its own failure and the crypto community is often met with moralizing platitudes. With a PhD in AML and policy effectiveness/outcomes science, a discipline surprisingly rare in the anti-money laundering realm, this project helps break down knowledge silo...",
-    "attachments": [
-        {
-            "type": "title",
-            "content": "EffectiveAML.org: Decentralize knowledge",
-            "mime_type": "text/plain"
-        },
-        {
-            "type": "description",
-            "content": "Scientists, and even the UN, have declared anti-money laundering rules profoundly ineffective, and harmful to society, yet the AML bubble ignores its own failure and the crypto community is often met with moralizing platitudes. With a PhD in AML and policy effectiveness/outcomes science, a discipline surprisingly rare in the anti-money laundering realm, this project helps break down knowledge silos, democratize AML policy/science, and grow evidence-based resources to counter unfounded AML rhetoric.\r\n \r\nProblem\r\nKnowledge siloes (AML, crypto, and science bubbles) insulate AML policy from critical assessment from a public interest perspective – despite AML’s puny “success rate” (between 0.05-0.2%, leaving criminals up to 99.95%), constantly expanding regulatory risk, exponential cost, and harm to millions of people, communities, businesses, and countries. \r\n\r\nSimplistic narratives that \"AML stops crime\" and must be applied uncritically to crypto often don't stack up.\r\n\r\nDid you know, for example, that the industry set up in 1990 claiming to \"fight\" money laundering, crime, and terrorism, stopped even trying to assess any impact of its \"comply with rules based on standards\" mantra in about 1991, and does not even collect data to prove any impact on money laundering, crime, or terrorism? Scientists have been highlighting such failings since at least 1994.\r\n \r\nHowever, unaware of these problems, the crypto community often argues crypto definitions and scope, while AML’s kryptonite (its own profound failures) remain hidden, and bad regulations constantly expand without facing up to, let alone fixing, AML’s own core problems.\r\n \r\nSimplistic “crypto bad, AML good” narratives, despite shared objectives (no-one wants crime), chill meaningful debate and risk one-size-fits-all regulations (and failure, harm, and costs spiraling) rather than smarter, effective, solutions.\r\n\r\nThe standardized AML response to failure is constantly to demand more regulations, more data, imposing more cost. Without access to the science and evidence, often behind academic paywalls, it is hard to counter that narrative. Yet AML is so astonishingly ineffective that cutting crime with less surveillance, fewer regulations, less complexity, less compliance, less harm, and less cost, is not only feasible but imperative.\r\n \r\nSolution\r\nBreak down knowledge barriers with the only blog about anti-money laundering effectiveness curated by someone with a PhD in policy effectiveness/outcomes/AML, quoted in US Senate testimony, The Economist, Forbes, Politico, Reuters, and more, describing the AML system as possibly the least effective anti-crime measure, ever.\r\n \r\nHelp fund accessible evidence-based resources in a critical area to help advocate more effective, less harmful, regulations. AML will have a massive impact in shaping the future, for better or worse. This grant seeks to build free content and pay forward opportunities like subscriptions for crypto advocates, and more resources (including connections to academic literature in an area frequently unfamiliar to AML practitioners and policymakers and often unknown to those in others areas affected by AML, and enabling more artwork to be commissioned to convey key concepts with clarity and impact, etc); to help advance powerful, evidence-based, conversations - for a better future.\r\n \r\nHelp decentralize and democratize research hidden in the science bubble, masked by the AML bubble, unknown in the crypto bubble. \r\n\r\nFor just a few of the topics that may be explored, to help reveal fundamental problems with the AML narrative, grounded in science: About that first story and future possibilities.\r\n\r\nPlus a few examples appearing in and drawn from academic peer-review journals:\r\n \r\n·  AML is ineffective: UN 2011, Pol 2018a, 2019a, 2020a (summarized in the blog, in a single paragraph, in the style of The Onion, here - illustrating that the AML narrative compared with the science has reached the point of satire. In many areas, the rhetoric simply does not accord with the evidence).\r\n·  AML is harmful: Pol 2019b, 2020b, 2020c, UN 2021.\r\n·  AML “effectiveness” ratings system is not a viable effectiveness framework: Pol 2018b, 2020.\r\n·  AML fails even to collect relevant data (Levi 2018) or adequately use its own data: Pol 2019c, 2020d.\r\n\r\n\r\n\r\n\r\n\r\n",
-            "mime_type": "text/plain"
-        },
-        {
-            "type": "logo",
-            "address": "https://c.gitcoin.co/grants/c4bf51344ca84f41f1b04aa1936e6521/Bullseye_Third_1386x726.jpg",
-            "mime_type": "image/png"
-        }
-    ],
-    "source": "Gitcoin Contribution",
-    "metadata": {
-        "amount": "25000000000000000000",
-        "approach": "Polygon",
-        "decimal": 18,
-        "destination": "0xac4c4b28ce51737dbb9de3a4e33724b1ba350b92",
-        "from": "0xc560eb6fd0c2eb80df50e5e06715295ae1205049",
-        "network": "polygon",
-        "proof": "0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d",
-        "to": "0xb99080b9407436eBb2b8Fe56D45fFA47E9bb8877",
-        "token_symbol": "MATIC"
+  "identifier": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon",
+  "date_created": "2021-12-16T02:31:29.000Z",
+  "date_updated": "2021-12-16T02:31:29.000Z",
+  "related_urls": [
+    "https://polygonscan.com/tx/0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d",
+    "https://gitcoin.co/grants3380/effectiveamlorg-decentralize-knowledge"
+  ],
+  "links": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon/links",
+  "backlinks": "rss3://note:0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d-4@polygon/backlinks",
+  "tags": ["Donation", "Gitcoin"],
+  "authors": [
+    "rss3://account:0xc560eb6fd0c2eb80df50e5e06715295ae1205049@ethereum"
+  ],
+  "title": "EffectiveAML.org: Decentralize knowledge",
+  "summary": "Scientists, and even the UN, have declared anti-money laundering rules profoundly ineffective, and harmful to society, yet the AML bubble ignores its own failure and the crypto community is often met with moralizing platitudes. With a PhD in AML and policy effectiveness/outcomes science, a discipline surprisingly rare in the anti-money laundering realm, this project helps break down knowledge silo...",
+  "attachments": [
+    {
+      "type": "title",
+      "content": "EffectiveAML.org: Decentralize knowledge",
+      "mime_type": "text/plain"
+    },
+    {
+      "type": "description",
+      "content": "Scientists, and even the UN, have declared anti-money laundering rules profoundly ineffective, and harmful to society, yet the AML bubble ignores its own failure and the crypto community is often met with moralizing platitudes. With a PhD in AML and policy effectiveness/outcomes science, a discipline surprisingly rare in the anti-money laundering realm, this project helps break down knowledge silos, democratize AML policy/science, and grow evidence-based resources to counter unfounded AML rhetoric.\r\n \r\nProblem\r\nKnowledge siloes (AML, crypto, and science bubbles) insulate AML policy from critical assessment from a public interest perspective – despite AML’s puny “success rate” (between 0.05-0.2%, leaving criminals up to 99.95%), constantly expanding regulatory risk, exponential cost, and harm to millions of people, communities, businesses, and countries. \r\n\r\nSimplistic narratives that \"AML stops crime\" and must be applied uncritically to crypto often don't stack up.\r\n\r\nDid you know, for example, that the industry set up in 1990 claiming to \"fight\" money laundering, crime, and terrorism, stopped even trying to assess any impact of its \"comply with rules based on standards\" mantra in about 1991, and does not even collect data to prove any impact on money laundering, crime, or terrorism? Scientists have been highlighting such failings since at least 1994.\r\n \r\nHowever, unaware of these problems, the crypto community often argues crypto definitions and scope, while AML’s kryptonite (its own profound failures) remain hidden, and bad regulations constantly expand without facing up to, let alone fixing, AML’s own core problems.\r\n \r\nSimplistic “crypto bad, AML good” narratives, despite shared objectives (no-one wants crime), chill meaningful debate and risk one-size-fits-all regulations (and failure, harm, and costs spiraling) rather than smarter, effective, solutions.\r\n\r\nThe standardized AML response to failure is constantly to demand more regulations, more data, imposing more cost. Without access to the science and evidence, often behind academic paywalls, it is hard to counter that narrative. Yet AML is so astonishingly ineffective that cutting crime with less surveillance, fewer regulations, less complexity, less compliance, less harm, and less cost, is not only feasible but imperative.\r\n \r\nSolution\r\nBreak down knowledge barriers with the only blog about anti-money laundering effectiveness curated by someone with a PhD in policy effectiveness/outcomes/AML, quoted in US Senate testimony, The Economist, Forbes, Politico, Reuters, and more, describing the AML system as possibly the least effective anti-crime measure, ever.\r\n \r\nHelp fund accessible evidence-based resources in a critical area to help advocate more effective, less harmful, regulations. AML will have a massive impact in shaping the future, for better or worse. This grant seeks to build free content and pay forward opportunities like subscriptions for crypto advocates, and more resources (including connections to academic literature in an area frequently unfamiliar to AML practitioners and policymakers and often unknown to those in others areas affected by AML, and enabling more artwork to be commissioned to convey key concepts with clarity and impact, etc); to help advance powerful, evidence-based, conversations - for a better future.\r\n \r\nHelp decentralize and democratize research hidden in the science bubble, masked by the AML bubble, unknown in the crypto bubble. \r\n\r\nFor just a few of the topics that may be explored, to help reveal fundamental problems with the AML narrative, grounded in science: About that first story and future possibilities.\r\n\r\nPlus a few examples appearing in and drawn from academic peer-review journals:\r\n \r\n·  AML is ineffective: UN 2011, Pol 2018a, 2019a, 2020a (summarized in the blog, in a single paragraph, in the style of The Onion, here - illustrating that the AML narrative compared with the science has reached the point of satire. In many areas, the rhetoric simply does not accord with the evidence).\r\n·  AML is harmful: Pol 2019b, 2020b, 2020c, UN 2021.\r\n·  AML “effectiveness” ratings system is not a viable effectiveness framework: Pol 2018b, 2020.\r\n·  AML fails even to collect relevant data (Levi 2018) or adequately use its own data: Pol 2019c, 2020d.\r\n\r\n\r\n\r\n\r\n\r\n",
+      "mime_type": "text/plain"
+    },
+    {
+      "type": "logo",
+      "address": "https://c.gitcoin.co/grants/c4bf51344ca84f41f1b04aa1936e6521/Bullseye_Third_1386x726.jpg",
+      "mime_type": "image/png"
     }
+  ],
+  "source": "Gitcoin Contribution",
+  "metadata": {
+    "amount": "25000000000000000000",
+    "approach": "Polygon",
+    "decimal": 18,
+    "destination": "0xac4c4b28ce51737dbb9de3a4e33724b1ba350b92",
+    "from": "0xc560eb6fd0c2eb80df50e5e06715295ae1205049",
+    "network": "polygon",
+    "proof": "0xe70def2d8954cbbcc66a78948e468a7bc6cf3d8d3edec439a17daaaf6742209d",
+    "to": "0xb99080b9407436eBb2b8Fe56D45fFA47E9bb8877",
+    "token_symbol": "MATIC"
+  }
 }
 ```
 
@@ -528,7 +521,7 @@ A sample Donation note is structured as follows:
 
 1. `instance` posted a mirror article
 1. `instance` revised the mirror article
-:::
+   :::
 
 PreGod indexes all arweave transactions related to Mirror articles, a note with "Mirror Entry" as its `source` represents either a "post" or "revise" action of an article. Since article revisions share the same url as the original, we could first aggregate all notes with "Mirror Entry" by the url in `related_urls`. In the aggregation, we could simply identify the earliest one as the original with a "post" `action`, and others as revisions with a "revise" `action`.
 
