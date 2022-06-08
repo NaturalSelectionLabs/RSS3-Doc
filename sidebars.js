@@ -36,7 +36,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Product',
+      label: 'Products',
       link: {
         type: 'generated-index',
         description: "RSS3 offers multiple products to help you build the feed of Web3."

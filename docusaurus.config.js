@@ -89,12 +89,16 @@ const config = {
             title: "Docs",
             items: [
               {
+                label: "Guide",
+                to: "/docs/category/guide",
+              },
+              {
                 label: "Products",
                 to: "/docs/category/products",
               },
               {
-                label: "PreGod API",
-                to: "docs/category/rss3-pregod",
+                label: "PreGod API Playground",
+                to: "api",
               },
             ],
           },
