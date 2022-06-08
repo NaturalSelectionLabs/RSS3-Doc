@@ -34,10 +34,10 @@
             "in": "path",
             "description": "The address of the instance.",
             "required": true,
-            "example": "0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944",
             "schema": {
               "type": "string"
-            }
+            },
+            "example": "0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944"
           },
           {
             "name": "platform",
@@ -81,8 +81,6 @@
             "description": "Include Notes by tags.",
             "required": false,
             "example": "NFT,POAP",
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "array",
               "items": {
@@ -97,8 +95,6 @@
             "description": "Filter out Notes by tags.",
             "required": false,
             "example": "NFT,POAP",
-            "style": "form",
-            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -114,7 +110,16 @@
             "required": false,
             "example": "Ethereum NFT",
             "schema": {
-              "$ref": "#/components/schemas/Sources"
+              "type": "string",
+              "enum": [
+                "Crossbell",
+                "Ethereum",
+                "Polygon",
+                "BNB Smart Chain",
+                "zkSync",
+                "Mirror Entry",
+                "Gitcoin Contribution"
+              ]
             }
           }
         ],
@@ -125,16 +130,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetResponse"
-                }
-              }
-            }
-          },
-          "*": {
-            "description": "An invalid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidRequest"
                 }
               }
             }
@@ -160,16 +155,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PostResponse"
-                }
-              }
-            }
-          },
-          "*": {
-            "description": "An invalid request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidRequest"
                 }
               }
             }
@@ -259,25 +244,6 @@
             }
           }
         }
-      },
-      "InvalidRequest": {
-        "type": "object",
-        "required": [
-          "code",
-          "error"
-        ],
-        "properties": {
-          "code": {
-            "type": "integer",
-            "example": 0,
-            "format": "int32"
-          },
-          "error": {
-            "type": "string",
-            "example": "no router"
-          }
-        },
-        "description": "Returns when an invalid request was received."
       },
       "Date": {
         "type": "string",
@@ -472,8 +438,8 @@
                   "type": "array",
                   "description": "The list of RSS3URIs",
                   "example": [
-                    "0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944",
-                    "0x827431510a5D249cE4fdB7F00C83a3353F471848"
+                    "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum",
+                    "rss3://account:0x827431510a5D249cE4fdB7F00C83a3353F471848@ethereum"
                   ]
                 },
                 "last_identifier": {
@@ -495,7 +461,7 @@
                     "NFT",
                     "Token"
                   ],
-                  "schema": {
+                  "items": {
                     "$ref": "#/components/schemas/Tags"
                   }
                 },
@@ -505,7 +471,7 @@
                   "example": [
                     "POAP"
                   ],
-                  "schema": {
+                  "items": {
                     "$ref": "#/components/schemas/Tags"
                   }
                 },
@@ -516,7 +482,7 @@
                     "Ethereum NFT",
                     "Ethereum Token"
                   ],
-                  "schema": {
+                  "items": {
                     "$ref": "#/components/schemas/Sources"
                   }
                 }
