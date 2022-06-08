@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 description: RSS3 community
 ---
 

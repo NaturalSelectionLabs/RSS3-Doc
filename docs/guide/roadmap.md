@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 description: RSS3 in the future
 ---
 
