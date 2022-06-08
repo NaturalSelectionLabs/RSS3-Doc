@@ -69,11 +69,11 @@ const config = {
             label: "💌 Join Us",
             position: "right",
           },
-          // TODO: fix the link to the whitepaper
           {
-            to: "./static/assets/RSS3-Whitepaper.pdf",
+            to: "/assets/RSS3-Whitepaper.pdf",
             label: "Whitepaper",
             position: "right",
+            target: "_blank",
           },
           {
             href: "https://github.com/NaturalSelectionLabs/RSS3-Wiki",
