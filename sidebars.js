@@ -91,6 +91,7 @@ const sidebars = {
     },
     'design',
     'token',
+    'events',
     'support',
   ]
 
