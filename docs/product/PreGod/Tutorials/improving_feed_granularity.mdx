@@ -212,7 +212,7 @@ Otherwise
 
 </TabItem>
   <TabItem value="NFTsendBurn" label="Send/Burn">
-  
+
   When `action[0].metadata.from` is the instance itself
 
 :::note send
@@ -520,7 +520,7 @@ A sample Donation note is structured as follows:
 
 1. `instance` posted a mirror article
 1. `instance` revised the mirror article
-   :::
+:::
 
 PreGod indexes all arweave transactions related to Mirror articles, a note with "Mirror Entry" as its `source` represents either a "post" or "revise" action of an article. Since article revisions share the same url as the original, we could first aggregate all notes with "Mirror Entry" by the url in `related_urls`. In the aggregation, we could simply identify the earliest one as the original with a "post" `action`, and others as revisions with a "revise" `action`.
 
