@@ -10,7 +10,9 @@
 }
 
 .hero {
-  width: 75vw;
+  max-height: 50vh;
+  width: auto;
+  height: auto;
 }
 
 .container {
