@@ -1,0 +1,21 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+
+.investor {
+  display: grid;
+  row-gap: 3rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 3rem;
+  align-items: center;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.investor img {
+  max-width: 100%;
+  max-height: 5rem;
+  vertical-align: middle;
+}
