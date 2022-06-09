@@ -16,7 +16,7 @@
   --ifm-color-primary-lightest: #33B8FF;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --openapi-monaco-background-color: #FFFFFF!important;
+  --openapi-monaco-background-color: #FFFFFF !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -31,16 +31,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-a>svg {
-  display: inline;
-  vertical-align: inherit;
-}
 
 img[alt="powered by RSS3"],
 img[alt="auxiliary logo"] {
   width: 200px;
-}
-
-code {
-  vertical-align: inherit;
 }
