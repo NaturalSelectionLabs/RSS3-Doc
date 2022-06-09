@@ -1,3 +1,7 @@
+---
+title: 'Design'
+---
+
 # 🦋 Design
 
 ## Graphics

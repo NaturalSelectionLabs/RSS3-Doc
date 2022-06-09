@@ -89,6 +89,8 @@ const sidebars = {
         'misc/faq',
       ],
     },
+    'design',
+    'token',
     'support',
   ]
 

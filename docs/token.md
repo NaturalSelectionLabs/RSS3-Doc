@@ -1,3 +1,7 @@
+---
+title: '$RSS3'
+---
+
 # 🐮 $RSS3
 
 ## Introduction
