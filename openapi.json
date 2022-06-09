@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/account:{instance}@{platform}/notes": {
+    "/{instance}/notes": {
       "get": {
         "tags": [
           "Note"
@@ -32,32 +32,17 @@
           {
             "name": "instance",
             "in": "path",
-            "description": "The address of the instance.",
+            "description": "The address of the instance, prefixed with `account:`, suffixed with `@platform`. **Possible `platform` values**: [`ethereum`, `solana`, `flow`, `arweave`]",
             "required": true,
             "schema": {
               "type": "string"
             },
-            "example": "0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944"
-          },
-          {
-            "name": "platform",
-            "in": "path",
-            "description": "The platform of the instance.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "ethereum",
-                "solana",
-                "flow",
-                "arweave"
-              ]
-            }
+            "example": "account:0x000000A52a03835517E9d193B3c27626e1Bc96b1@ethereum"
           },
           {
             "name": "last_identifier",
             "in": "query",
-            "description": "The pointer used for paging.",
+            "description": "The cursor used for paging.",
             "required": false,
             "schema": {
               "type": "string"
@@ -79,12 +64,12 @@
             "name": "tags",
             "in": "query",
             "description": "Include Notes by tags.",
+            "example": "Token",
             "required": false,
-            "example": "NFT,POAP",
+            "style": "pipeDelimited",
+            "explode": true,
             "schema": {
-              "type": "array",
               "items": {
-                "type": "string",
                 "$ref": "#/components/schemas/Tags"
               }
             }
@@ -93,12 +78,13 @@
             "name": "exclude_tags",
             "in": "query",
             "description": "Filter out Notes by tags.",
+            "example": "NFT",
             "required": false,
-            "example": "NFT,POAP",
+            "style": "pipeDelimited",
+            "explode": true,
             "schema": {
               "type": "array",
               "items": {
-                "type": "string",
                 "$ref": "#/components/schemas/Tags"
               }
             }
@@ -107,19 +93,14 @@
             "name": "item_sources",
             "in": "query",
             "description": "Include Notes by indexing sources.",
-            "required": false,
             "example": "Ethereum NFT",
+            "required": false,
+            "style": "pipeDelimited",
+            "explode": true,
             "schema": {
-              "type": "string",
-              "enum": [
-                "Crossbell",
-                "Ethereum",
-                "Polygon",
-                "BNB Smart Chain",
-                "zkSync",
-                "Mirror Entry",
-                "Gitcoin Contribution"
-              ]
+              "items": {
+                "$ref": "#/components/schemas/Sources"
+              }
             }
           }
         ],
@@ -192,7 +173,7 @@
           "identifier_next": {
             "type": "string",
             "example": "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum/notes?exclude_tags=POAP&item_sources=Ethereum+NFT&last_identifier=rss3%3A%2F%2Fnote%3A0x4d911c97ffc43c87664f807ea63718a9382f95f5fdc98dcfa8e9b2ad3beccdd6-300-1%40polygon&limit=10&tags=NFT",
-            "description": "The pointer of the current request."
+            "description": "The cursor of the current request."
           },
           "total": {
             "type": "number",
@@ -229,7 +210,7 @@
           "identifier_next": {
             "type": "string",
             "example": "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum/notes?last_identifier=rss3%3A%2F%2Fnote%3A0x90b2a3072915d194bf8d8eea937545bb196eeb0f4894f068d334b666cf75d2bc-178-18%40ethereum&limit=100",
-            "description": "The pointer of the current request."
+            "description": "The cursor of the current request."
           },
           "total": {
             "type": "number",
@@ -444,7 +425,7 @@
                 },
                 "last_identifier": {
                   "type": "string",
-                  "description": "The pointer used for paging.",
+                  "description": "The cursor used for paging.",
                   "example": "rss3://note:0x5175b715019267bf8bcf37f95129c0ff400129eee675cdf261907701ac2da568-295-22@ethereum"
                 },
                 "limit": {
