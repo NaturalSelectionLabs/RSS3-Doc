@@ -4,6 +4,8 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+const copyright = `Copyright © ${new Date().getFullYear()} Natural Selection Labs.`;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "RSS3",
@@ -34,15 +36,20 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
+          blogTitle: 'RSS3 Dev Log',
           showReadingTime: true,
-          path: "changelog",
-          routeBasePath: "changelog",
+          path: "devlog",
+          routeBasePath: "devlog",
+          feedOptions: {
+            type: 'all',
+            copyright,
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
         api: {
-          routeBasePath: "api", // todo update the api link
+          routeBasePath: "api", // TODO: update the api link
         },
       }),
     ],
@@ -60,10 +67,10 @@ const config = {
         items: [
           {
             to: "/docs/category/guide",
-            label: "Docs",
+            label: "Guide",
             position: "right",
           },
-          { to: "/changelog", label: "🔄 API Changelog", position: "right" },
+          { to: "/devlog", label: "Dev Log", position: "right" },
           {
             href: "https://rss3.notion.site/Open-Source-Remote-RSS3-Offering-the-Dopest-Positions-b6fdbffee017449797397f45340de9d4",
             label: "💌 Join Us",
@@ -76,7 +83,7 @@ const config = {
             target: "_blank",
           },
           {
-            href: "https://github.com/NaturalSelectionLabs/RSS3-Wiki",
+            href: "https://github.com/NaturalSelectionLabs",
             label: "GitHub",
             position: "right",
           },

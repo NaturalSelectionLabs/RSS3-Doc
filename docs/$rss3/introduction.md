@@ -1,10 +1,8 @@
 ---
-title: '$RSS3'
+description: An introduction to $RSS3
 ---
 
-# 🐮 $RSS3
-
-## Introduction
+# Introduction
 
 As described in the Whitepaper, the yet-to-come RSS3DAO is designed to be governing all matters related to $RSS3 and its network. Though a complete decentralized governing may take time to develop, with the continuous development of the project, we believe it is time for us to introduce our token $RSS3.
 
