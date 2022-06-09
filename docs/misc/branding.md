@@ -1,8 +1,14 @@
+---
+description: Learn more about RSS3 Branding
+---
+
 # Branding
 
 We designed an auxiliary graphic for RSS3, the line changes each time you refresh the page. This symbolizes our desire for RSS3 to be open and inclusive.
 
 ![auxiliary logo](https://graphics.rss3.workers.dev)
+
+<!-- TODO: update layout -->
 
 SVG
 

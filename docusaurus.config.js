@@ -70,7 +70,7 @@ const config = {
             label: "Guide",
             position: "right",
           },
-          { to: "/devlog", label: "Dev Log", position: "right" },
+          { to: "/devlog", label: "✍️ Dev Log", position: "right" },
           {
             href: "https://rss3.notion.site/Open-Source-Remote-RSS3-Offering-the-Dopest-Positions-b6fdbffee017449797397f45340de9d4",
             label: "💌 Join Us",

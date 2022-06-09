@@ -70,7 +70,7 @@ const sidebars = {
               collapsed: true,
               items: [
                 'product/PreGod/Tutorials/cookbook',
-                'product/PreGod/Tutorials/mirror_reader',
+                // 'product/PreGod/Tutorials/mirror_reader', TODO: content migration
                 'product/PreGod/Tutorials/improving_feed_granularity',
               ],
             },

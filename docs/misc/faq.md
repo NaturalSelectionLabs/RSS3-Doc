@@ -1,3 +1,7 @@
+---
+description: The stuff we thought you'd like to know.
+---
+
 # FAQ
 
 ## Q: What is the relationship between RSS3 and RSS?
