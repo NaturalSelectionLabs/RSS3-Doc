@@ -1,0 +1,62 @@
+{
+    "Revery": {
+        "logo": "Revery.svg",
+        "link": "https://revery.so/",
+        "desc": "A Web3 native social media with great interoperability"
+    },
+    "Cheers": {
+        "logo": "Cheers.svg",
+        "link": "https://cheers.bio/",
+        "desc": "Another cross-platform Web3 Profile"
+    },
+    "Mask": {
+        "logo": "Mask.svg",
+        "link": "https://mask.io/",
+        "desc": "RSS3 works with Mask Network to bring the best Web3 enhanced Web2 social experience"
+    },
+    "ShowMe": {
+        "logo": "ShowMe.svg",
+        "link": "https://showme.fan/",
+        "desc": "RSS3 powers the profile page of ShowMe, an NFT social subscription platform"
+    },
+    "inGroup": {
+        "logo": "inGroup.svg",
+        "link": "https://ingroup.chat/",
+        "desc": "RSS3 powers the activity feed of different groups in crypto organizations of InGroup, a web3 social network"
+    },
+    "Flowns": {
+        "logo": "Flowns.svg",
+        "link": "https://www.flowns.org/",
+        "desc": "RSS3 powers the profile of Flowns, an opening protocol of identities and assets"
+    },
+    "Une Meta": {
+        "logo": "Une Meta.svg",
+        "link": "https://www.info.unemeta.com/",
+        "desc": "RSS3 supports Une Meta's social-enforced NFT trading platform to bring out a refreshing NFT experience"
+    },
+    "Matrix World": {
+        "logo": "Matrix World.svg",
+        "link": "https://matrixworld.org/home",
+        "desc": "RSS3 powers the social profile of characters in Matrix World"
+    },
+    "UniPass": {
+        "logo": "UniPass.svg",
+        "link": "https://www.unipass.id/",
+        "desc": "RSS3 constructs part of Unipass’s user social graph"
+    },
+    "KNN3": {
+        "logo": "KNN3.png",
+        "link": "https://www.knn3.xyz/",
+        "desc": "A web3 users topological graph network where a major part of data comes from RSS3"
+    },
+    "Interface": {
+        "logo": "Interface.svg",
+        "link": "https://search.interface.social/",
+        "desc": "RSS3 provides the underlying data to power Interface's social search engine"
+    },
+    "Atem": {
+        "logo": "Atem.jpg",
+        "link": "https://www.atemnet.com/",
+        "desc": "RSS3 provides data for profiles and also community activities for Atem's decentralized community"
+    }
+}
