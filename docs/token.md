@@ -5,6 +5,7 @@ title: '$RSS3'
 # 🐮 $RSS3
 
 ## Introduction
+
 As described in the Whitepaper, the yet-to-come RSS3DAO is designed to be governing all matters related to $RSS3 and its network. Though a complete decentralized governing may take time to develop, with the continuous development of the project, we believe it is time for us to introduce our token $RSS3.
 
 For now, we expect the tokens to be used to govern the following issues:
@@ -30,7 +31,7 @@ users and application adoptions. Specifically, the growth is expected to come fr
 
 ### Total Supply and Allocation
 
-In total, all 1,000,000,000 $RSS3 tokens will be created at genesis. 
+In total, all 1,000,000,000 $RSS3 tokens will be created at genesis.
 
 ![](/img/token/token1.png)
 
@@ -42,7 +43,7 @@ The majority of the $RSS3 Token is subject to long-term lockups. Details are as 
 
 #### Community
 
-Community tokens are those that will be gradually distributed to the general public. 
+Community tokens are those that will be gradually distributed to the general public.
 
 - 5% will be tokens from public sales during the TGE, which will be the only tokens that are unlocked immediately.
 - 10% will be early incentives. 2% will be airdropped to existing users in the RSS3 ecosystem 1 month after the LBP. The remaining will be having a 12-month linear unlock, which will be used as incentives toward various stakeholders (e.g. active users, ecosystem app developers, and testnet node operators).
