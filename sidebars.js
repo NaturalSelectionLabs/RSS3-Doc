@@ -76,11 +76,6 @@ const sidebars = {
             },
           ],
         },
-        {
-          type: 'link',
-          label: 'Unidata',
-          href: 'https://unidata.app/',
-        },
       ],
     },
     {

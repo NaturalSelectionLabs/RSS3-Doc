@@ -9,6 +9,11 @@
         "link": "https://cheers.bio/",
         "desc": "Another cross-platform Web3 Profile"
     },
+    "Unidata": {
+        "logo": "Unidata.png",
+        "link": "https://unidata.app/",
+        "desc": "Unidata provides an easy way to buidl Web3 application using RSS3 feed."
+    },
     "Mask": {
         "logo": "Mask.svg",
         "link": "https://mask.io/",
