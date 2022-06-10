@@ -36,17 +36,17 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
-          blogTitle: 'RSS3 Dev Log',
+          blogTitle: "RSS3 Dev Log",
           showReadingTime: true,
           path: "devlog",
           routeBasePath: "devlog",
           feedOptions: {
-            type: 'all',
+            type: "all",
             copyright,
           },
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [require.resolve("./src/css/custom.css")],
         },
         api: {
           routeBasePath: "api", // TODO: update the api link
