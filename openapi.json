@@ -26,7 +26,7 @@
           "Note"
         ],
         "summary": "Get Notes of an instance",
-        "description": "Returns a list of Notes.",
+        "description": "Returns a list of Notes. **This page may crash to [a bug](https://github.com/cloud-annotations/docusaurus-openapi/issues/183), please click on 'try again' if it happens. **",
         "operationId": "getNotesByInstance",
         "parameters": [
           {
