@@ -12,7 +12,7 @@ const config = {
   tagline:
     "RSS3 is an open information syndication protocol that aims to support efficient and decentralized information distribution in Web3.",
   url: "https://docs.rss3.io",
-  baseUrl: "/RSS3-Doc/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "https://graphics.rss3.workers.dev/",
