@@ -30,7 +30,6 @@ const sidebars = {
         'guide/introduction',
         'guide/roadmap',
         'guide/ecosystem',
-        'guide/community',
         'guide/partnership',
       ],
     },
