@@ -32,8 +32,3 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --openapi-monaco-background-color: #242526 !important;
 }
-
-img[alt="powered by RSS3"],
-img[alt="auxiliary logo"] {
-  width: 200px;
-}
