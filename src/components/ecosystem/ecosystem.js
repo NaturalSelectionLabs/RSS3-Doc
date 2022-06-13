@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "@docusaurus/Link";
 import styles from "./ecosystem.module.css";
 import useBaseUrl from '@docusaurus/useBaseUrl';
 

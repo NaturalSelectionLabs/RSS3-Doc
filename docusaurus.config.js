@@ -77,10 +77,9 @@ const config = {
             position: "right",
           },
           {
-            to: "/assets/RSS3-Whitepaper.pdf",
-            label: "Whitepaper",
+            href: "https://blog.rss3.io/",
+            label: "Blog",
             position: "right",
-            target: "_blank",
           },
           {
             href: "https://github.com/NaturalSelectionLabs",
@@ -124,6 +123,10 @@ const config = {
                 label: "Telegram",
                 href: "https://t.me/rss3_en",
               },
+              {
+                label: "GitHub",
+                href: "https://github.com/NaturalSelectionLabs",
+              },
             ],
           },
           {
@@ -131,15 +134,11 @@ const config = {
             items: [
               {
                 label: "Blog",
-                href: "https://rss3.notion.site/",
+                href: "https://blog.rss3.io/",
               },
               {
                 label: "Branding",
                 to: "/docs/misc/branding",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/NaturalSelectionLabs",
               },
             ],
           },

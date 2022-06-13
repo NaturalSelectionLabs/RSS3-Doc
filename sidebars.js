@@ -114,12 +114,12 @@ const sidebars = {
             {
               type: 'link',
               label: '#1 Airdrop',
-              href: 'https://rss3.notion.site/RSS3-Early-Incentives-1-670b889cc1e444b2b7c5fe40df9cba03',
+              href: 'https://blog.rss3.io/19-rss3-early-incentives-1',
             },
             {
               type: 'link',
               label: '#2 Airdrop',
-              href: 'https://rss3.notion.site/RSS3-Early-Incentive-2-191eb132cace4635a476f73ec31847dc',
+              href: 'https://blog.rss3.io/25-rss3-early-incentive-2',
             },
             {
               type: 'link',
