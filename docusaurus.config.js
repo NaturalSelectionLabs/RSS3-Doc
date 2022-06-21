@@ -34,6 +34,14 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          lastVersion: 'v0.4.0',
+          versions: {
+            'current': {
+              label: 'v1.0.0',
+              path: '/next',
+              banner: 'unreleased',
+            },
+          },
         },
         blog: {
           blogTitle: "RSS3 Dev Log",
@@ -66,7 +74,13 @@ const config = {
         },
         items: [
           {
-            to: "/docs/category/guide",
+            type: 'docsVersionDropdown',
+            dropdownItemsAfter: [{ to: '/versions', label: 'All versions' }],
+            dropdownActiveClassDisabled: false,
+            position: "left",
+          },
+          {
+            to: `/docs/category/guide`,
             label: "Guide",
             position: "right",
           },
