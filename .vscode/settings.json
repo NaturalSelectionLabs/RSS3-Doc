@@ -8,7 +8,7 @@
     "eslint.alwaysShowStatus": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "[css, json, javascript, javascriptreact]": {
+    "[css, javascript, javascriptreact]": {
         "editor.formatOnSave": false
     },
     "editor.codeActionsOnSave": {
