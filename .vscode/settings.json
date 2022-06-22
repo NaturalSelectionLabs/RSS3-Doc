@@ -1,6 +1,17 @@
 {
     "cSpell.words": [
         "arweave",
-        "markdownlint"
-    ]
+        "markdownlint",
+        "noreferrer",
+        "Roadmap"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "[css, json, javascript, javascriptreact]": {
+        "editor.formatOnSave": false
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
 }

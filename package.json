@@ -24,7 +24,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "eslint src --ext .js,.jsx --fix"
   },
   "resolutions": {
     "@docusaurus/core": "2.0.0-beta.14",
@@ -46,5 +47,60 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "react",
+      "@docusaurus"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@docusaurus/recommended",
+      "plugin:prettier/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "eslintIgnore": [
+    ".docusaurus",
+    ".vscode",
+    "build",
+    "node_modules"
+  ],
+  "prettier": {
+    "printWidth": 90,
+    "tabWidth": 4,
+    "useTabs": false,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "semi": true,
+    "jsxSingleQuote": true,
+    "jsxBracketSameLine": true
+  },
+  "devDependencies": {
+    "@docusaurus/eslint-plugin": "^2.0.0-beta.21",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "prettier": "^2.7.1"
   }
 }

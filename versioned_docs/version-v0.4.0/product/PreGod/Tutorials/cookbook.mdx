@@ -2,8 +2,8 @@
 title: A cookbook
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 The cookbook demonstrates some common use case scenarios of the APIs. Take these examples for a spin yourself for inspiration getting started with PreGod.
 
@@ -45,96 +45,96 @@ A successful query should return a response with the following data:
 
 ```json
 {
-  "version": "v0.4.0",
-  "date_updated": "2022-05-15T11:57:26.000Z",
-  "identifier": "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum/notes?exclude_tags=POAP\u0026limit=100\u0026tags=NFT",
-  "total": 49,
-  "list": [
-    {
-      "identifier": "rss3://note:0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539@ethereum",
-      "date_created": "2022-03-17T23:23:35.000Z",
-      "date_updated": "2022-03-17T23:23:35.000Z",
-      "related_urls": [
-        "https://etherscan.io/tx/0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28",
-        "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/539",
-        "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/539"
-      ],
-      "tags": ["NFT"],
-      "authors": [
-        "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum"
-      ],
-      "title": "The Genesis RSS3 Avatar NFT #539",
-      "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
-      "attachments": [
+    "version": "v0.4.0",
+    "date_updated": "2022-05-15T11:57:26.000Z",
+    "identifier": "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum/notes?exclude_tags=POAP\u0026limit=100\u0026tags=NFT",
+    "total": 49,
+    "list": [
         {
-          "type": "preview",
-          "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/539.png",
-          "mime_type": "image/png",
-          "size_in_bytes": 58017
-        }
-      ],
-      "source": "Ethereum NFT",
-      "metadata": {
-        "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
-        "collection_name": "The Genesis RSS3 Avatar NFT",
-        "contract_type": "ERC721",
-        "from": "0x0000000000000000000000000000000000000000",
-        "log_index": 430,
-        "network": "ethereum",
-        "proof": "0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539",
-        "to": "0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944",
-        "token_id": "539",
-        "token_standard": "ERC721",
-        "token_symbol": "The Genesis RSS3 Avatar NFT"
-      }
-    },
-    // .....
-    {
-      "identifier": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum",
-      "date_created": "2021-06-03T04:02:46.000Z",
-      "date_updated": "2021-06-03T04:02:46.000Z",
-      "related_urls": [
-        "https://etherscan.io/tx/0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde",
-        "https://etherscan.io/nft/0xacbe98efe2d4d103e221e04c76d7c55db15c8e89/5",
-        "https://opensea.io/assets/0xacbe98efe2d4d103e221e04c76d7c55db15c8e89/5"
-      ],
-      "links": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum/links",
-      "backlinks": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum/backlinks",
-      "tags": ["NFT"],
-      "authors": [
-        "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum"
-      ],
-      "title": "RSS Fruit Token #5",
-      "summary": "RSS Fruits Token (RTF) are demon fruits for those who contribute significantly to the open protocol of RSS3",
-      "attachments": [
-        {
-          "type": "preview",
-          "address": "https://gateway.pinata.cloud/ipfs/Qmaou2nCtmy1dJX4QQdsCf9HLax5yFCUdkuoyZ2mStWTdd",
-          "mime_type": "image/png",
-          "size_in_bytes": 88330
+            "identifier": "rss3://note:0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539@ethereum",
+            "date_created": "2022-03-17T23:23:35.000Z",
+            "date_updated": "2022-03-17T23:23:35.000Z",
+            "related_urls": [
+                "https://etherscan.io/tx/0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28",
+                "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/539",
+                "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/539"
+            ],
+            "tags": ["NFT"],
+            "authors": [
+                "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum"
+            ],
+            "title": "The Genesis RSS3 Avatar NFT #539",
+            "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
+            "attachments": [
+                {
+                    "type": "preview",
+                    "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/539.png",
+                    "mime_type": "image/png",
+                    "size_in_bytes": 58017
+                }
+            ],
+            "source": "Ethereum NFT",
+            "metadata": {
+                "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
+                "collection_name": "The Genesis RSS3 Avatar NFT",
+                "contract_type": "ERC721",
+                "from": "0x0000000000000000000000000000000000000000",
+                "log_index": 430,
+                "network": "ethereum",
+                "proof": "0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539",
+                "to": "0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944",
+                "token_id": "539",
+                "token_standard": "ERC721",
+                "token_symbol": "The Genesis RSS3 Avatar NFT"
+            }
         },
+        // .....
         {
-          "type": "attributes",
-          "content": "[{\"trait_type\":\"direction\",\"value\":\"right\"},{\"trait_type\":\"life cycle\",\"value\":\"1 leaf\"},{\"trait_type\":\"left fruit\",\"value\":\"orange\"},{\"trait_type\":\"right fruit\",\"value\":\"apple\"}]",
-          "mime_type": "text/json"
+            "identifier": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum",
+            "date_created": "2021-06-03T04:02:46.000Z",
+            "date_updated": "2021-06-03T04:02:46.000Z",
+            "related_urls": [
+                "https://etherscan.io/tx/0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde",
+                "https://etherscan.io/nft/0xacbe98efe2d4d103e221e04c76d7c55db15c8e89/5",
+                "https://opensea.io/assets/0xacbe98efe2d4d103e221e04c76d7c55db15c8e89/5"
+            ],
+            "links": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum/links",
+            "backlinks": "rss3://note:0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5@ethereum/backlinks",
+            "tags": ["NFT"],
+            "authors": [
+                "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum"
+            ],
+            "title": "RSS Fruit Token #5",
+            "summary": "RSS Fruits Token (RTF) are demon fruits for those who contribute significantly to the open protocol of RSS3",
+            "attachments": [
+                {
+                    "type": "preview",
+                    "address": "https://gateway.pinata.cloud/ipfs/Qmaou2nCtmy1dJX4QQdsCf9HLax5yFCUdkuoyZ2mStWTdd",
+                    "mime_type": "image/png",
+                    "size_in_bytes": 88330
+                },
+                {
+                    "type": "attributes",
+                    "content": "[{\"trait_type\":\"direction\",\"value\":\"right\"},{\"trait_type\":\"life cycle\",\"value\":\"1 leaf\"},{\"trait_type\":\"left fruit\",\"value\":\"orange\"},{\"trait_type\":\"right fruit\",\"value\":\"apple\"}]",
+                    "mime_type": "text/json"
+                }
+            ],
+            "source": "Ethereum NFT",
+            "metadata": {
+                "collection_address": "0xacbe98efe2d4d103e221e04c76d7c55db15c8e89",
+                "collection_name": "RSS Fruits Token",
+                "contract_type": "ERC721",
+                "from": "0x0000000000000000000000000000000000000000",
+                "log_index": 207,
+                "network": "ethereum",
+                "proof": "0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5",
+                "to": "0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944",
+                "token_id": "5",
+                "token_standard": "ERC721",
+                "token_symbol": "RFT"
+            }
         }
-      ],
-      "source": "Ethereum NFT",
-      "metadata": {
-        "collection_address": "0xacbe98efe2d4d103e221e04c76d7c55db15c8e89",
-        "collection_name": "RSS Fruits Token",
-        "contract_type": "ERC721",
-        "from": "0x0000000000000000000000000000000000000000",
-        "log_index": 207,
-        "network": "ethereum",
-        "proof": "0xb8adc7580145efeca0a77dfd9453c09f9e1fdb78a77ea51a8c8f8a791ee59bde-207-5",
-        "to": "0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944",
-        "token_id": "5",
-        "token_standard": "ERC721",
-        "token_symbol": "RFT"
-      }
-    }
-  ]
+    ]
 }
 ```
 
@@ -157,12 +157,12 @@ A request body can be formed in this way:
 
 ```json
 {
-  "addresses": [
-    "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum",
-    "rss3://account:0x827431510a5D249cE4fdB7F00C83a3353F471848@ethereum"
-  ],
-  "tags": ["NFT"],
-  "exclude_tags": ["POAP"]
+    "addresses": [
+        "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum",
+        "rss3://account:0x827431510a5D249cE4fdB7F00C83a3353F471848@ethereum"
+    ],
+    "tags": ["NFT"],
+    "exclude_tags": ["POAP"]
 }
 ```
 
@@ -199,107 +199,107 @@ A successful query should return a response with the following data:
 
 ```json
 {
-  "version": "v0.4.0",
-  "date_updated": "2022-05-10T20:16:27.000Z",
-  "total": 25,
-  "list": [
-    {
-      "identifier": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum",
-      "date_created": "2022-04-11T02:02:20.000Z",
-      "date_updated": "2022-04-11T02:02:20.000Z",
-      "related_urls": [
-        "https://etherscan.io/tx/0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47",
-        "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1008",
-        "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1008"
-      ],
-      "links": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum/links",
-      "backlinks": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum/backlinks",
-      "tags": ["NFT"],
-      "authors": [
-        "rss3://account:0x08d66b34054a174841e2361bd4746ff9f4905cc2@ethereum"
-      ],
-      "title": "The Genesis RSS3 Avatar NFT #1008",
-      "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
-      "attachments": [
+    "version": "v0.4.0",
+    "date_updated": "2022-05-10T20:16:27.000Z",
+    "total": 25,
+    "list": [
         {
-          "type": "preview",
-          "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1008.png",
-          "mime_type": "image/png",
-          "size_in_bytes": 50746
+            "identifier": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum",
+            "date_created": "2022-04-11T02:02:20.000Z",
+            "date_updated": "2022-04-11T02:02:20.000Z",
+            "related_urls": [
+                "https://etherscan.io/tx/0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47",
+                "https://etherscan.io/nft/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1008",
+                "https://opensea.io/assets/0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13/1008"
+            ],
+            "links": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum/links",
+            "backlinks": "rss3://note:0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008@ethereum/backlinks",
+            "tags": ["NFT"],
+            "authors": [
+                "rss3://account:0x08d66b34054a174841e2361bd4746ff9f4905cc2@ethereum"
+            ],
+            "title": "The Genesis RSS3 Avatar NFT #1008",
+            "summary": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
+            "attachments": [
+                {
+                    "type": "preview",
+                    "address": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1008.png",
+                    "mime_type": "image/png",
+                    "size_in_bytes": 50746
+                }
+            ],
+            "source": "Ethereum NFT",
+            "metadata": {
+                "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
+                "collection_name": "The Genesis RSS3 Avatar NFT",
+                "contract_type": "ERC721",
+                "from": "0x0000000000000000000000000000000000000000",
+                "log_index": 582,
+                "network": "ethereum",
+                "proof": "0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008",
+                "to": "0x08d66b34054a174841e2361bd4746ff9f4905cc2",
+                "token_id": "1008",
+                "token_standard": "ERC721",
+                "token_symbol": "The Genesis RSS3 Avatar NFT"
+            }
+        },
+        {
+            "identifier": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum",
+            "date_created": "2022-01-19T14:00:00.000Z",
+            "date_updated": "2022-01-19T14:00:00.000Z",
+            "related_urls": [
+                "https://etherscan.io/tx/0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02",
+                "https://etherscan.io/nft/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/19",
+                "https://opensea.io/assets/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/19"
+            ],
+            "links": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum/links",
+            "backlinks": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum/backlinks",
+            "tags": ["NFT"],
+            "authors": [
+                "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
+            ],
+            "title": "RSS3 Whitepaper v1.0",
+            "summary": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
+            "attachments": [
+                {
+                    "type": "external_url",
+                    "content": "https://rss3.io/RSS3-Whitepaper.pdf",
+                    "mime_type": "text/uri-list"
+                },
+                {
+                    "type": "preview",
+                    "address": "ipfs://bafybeiahqmf43pqwuq4vz4fugtg7nby4svjsn4f6a7mxfqnlfrgkww6maa/rss3-whitepaper-no-19.png",
+                    "mime_type": "image/png",
+                    "size_in_bytes": 117143
+                },
+                {
+                    "type": "object",
+                    "address": "ipfs://bafybeigyalxntwfje42gaylvc7qvkbsjhxyz54jdh6lzielalkkuift5ze/rss3-whitepaper-no-19.glb",
+                    "mime_type": "model/gltf-binary",
+                    "size_in_bytes": 3890832
+                },
+                {
+                    "type": "attributes",
+                    "content": "[{\"trait_type\":\"Author(s)\",\"value\":\"Natural Selection Labs\"},{\"trait_type\":\"Edition\",\"value\":\"First Edition\"},{\"trait_type\":\"Edition Language\",\"value\":\"English\"},{\"trait_type\":\"File Format\",\"value\":\"PDF\"},{\"trait_type\":\"No.\",\"value\":19},{\"trait_type\":\"Released Data\",\"value\":1610323200,\"display_type\":\"date\"}]",
+                    "mime_type": "text/json"
+                }
+            ],
+            "source": "Ethereum NFT",
+            "metadata": {
+                "collection_address": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
+                "collection_name": "RSS3 Whitepaper",
+                "contract_type": "ERC721",
+                "from": "0x0000000000000000000000000000000000000000",
+                "log_index": 230,
+                "network": "ethereum",
+                "proof": "0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19",
+                "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+                "token_id": "19",
+                "token_standard": "ERC721",
+                "token_symbol": "RWP"
+            }
         }
-      ],
-      "source": "Ethereum NFT",
-      "metadata": {
-        "collection_address": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
-        "collection_name": "The Genesis RSS3 Avatar NFT",
-        "contract_type": "ERC721",
-        "from": "0x0000000000000000000000000000000000000000",
-        "log_index": 582,
-        "network": "ethereum",
-        "proof": "0x6e1b2a3cc4e86c4f22e5eff44cc4cc7b303543a1b052461a866c9665b4fd7b47-582-1008",
-        "to": "0x08d66b34054a174841e2361bd4746ff9f4905cc2",
-        "token_id": "1008",
-        "token_standard": "ERC721",
-        "token_symbol": "The Genesis RSS3 Avatar NFT"
-      }
-    },
-    {
-      "identifier": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum",
-      "date_created": "2022-01-19T14:00:00.000Z",
-      "date_updated": "2022-01-19T14:00:00.000Z",
-      "related_urls": [
-        "https://etherscan.io/tx/0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02",
-        "https://etherscan.io/nft/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/19",
-        "https://opensea.io/assets/0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb/19"
-      ],
-      "links": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum/links",
-      "backlinks": "rss3://note:0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19@ethereum/backlinks",
-      "tags": ["NFT"],
-      "authors": [
-        "rss3://account:0x827431510a5d249ce4fdb7f00c83a3353f471848@ethereum"
-      ],
-      "title": "RSS3 Whitepaper v1.0",
-      "summary": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
-      "attachments": [
-        {
-          "type": "external_url",
-          "content": "https://rss3.io/RSS3-Whitepaper.pdf",
-          "mime_type": "text/uri-list"
-        },
-        {
-          "type": "preview",
-          "address": "ipfs://bafybeiahqmf43pqwuq4vz4fugtg7nby4svjsn4f6a7mxfqnlfrgkww6maa/rss3-whitepaper-no-19.png",
-          "mime_type": "image/png",
-          "size_in_bytes": 117143
-        },
-        {
-          "type": "object",
-          "address": "ipfs://bafybeigyalxntwfje42gaylvc7qvkbsjhxyz54jdh6lzielalkkuift5ze/rss3-whitepaper-no-19.glb",
-          "mime_type": "model/gltf-binary",
-          "size_in_bytes": 3890832
-        },
-        {
-          "type": "attributes",
-          "content": "[{\"trait_type\":\"Author(s)\",\"value\":\"Natural Selection Labs\"},{\"trait_type\":\"Edition\",\"value\":\"First Edition\"},{\"trait_type\":\"Edition Language\",\"value\":\"English\"},{\"trait_type\":\"File Format\",\"value\":\"PDF\"},{\"trait_type\":\"No.\",\"value\":19},{\"trait_type\":\"Released Data\",\"value\":1610323200,\"display_type\":\"date\"}]",
-          "mime_type": "text/json"
-        }
-      ],
-      "source": "Ethereum NFT",
-      "metadata": {
-        "collection_address": "0xb9619cf4f875cdf0e3ce48b28a1c725bc4f6c0fb",
-        "collection_name": "RSS3 Whitepaper",
-        "contract_type": "ERC721",
-        "from": "0x0000000000000000000000000000000000000000",
-        "log_index": 230,
-        "network": "ethereum",
-        "proof": "0x5039d3f855cdacc81e4251abc5f3fd81cb634c144f8b5ed9d67cb1f42d537a02-230-19",
-        "to": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-        "token_id": "19",
-        "token_standard": "ERC721",
-        "token_symbol": "RWP"
-      }
-    }
-  ]
+    ]
 }
 ```
 
@@ -318,5 +318,5 @@ You are now familiar with PreGod's APIs, you can try them out in the [API Specif
 
 The support for the followings has been removed:
 
-- `Profile`, you may use [Crossbell](https://crossbell.io) or [ENS](https://ens.domains) as a replacement.
-- `Links`, you may use [Crossbell](https://crossbell.io) or [CyberConnect](https://cyberconnect.me) as a replacement.
+-   `Profile`, you may use [Crossbell](https://crossbell.io) or [ENS](https://ens.domains) as a replacement.
+-   `Links`, you may use [Crossbell](https://crossbell.io) or [CyberConnect](https://cyberconnect.me) as a replacement.

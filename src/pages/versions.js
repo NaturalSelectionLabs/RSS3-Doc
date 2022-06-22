@@ -2,59 +2,39 @@ import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import {
-    useVersions,
-    useLatestVersion
-} from '@theme/hooks/useDocs';
+import { useVersions, useLatestVersion } from '@theme/hooks/useDocs';
 
 export default function Version() {
     const {
-        siteConfig: { organizationName, projectName }
+        siteConfig: { organizationName, projectName },
     } = useDocusaurusContext();
 
     const repoUrl = `https://github.com/${organizationName}/${projectName}`;
 
-    const versions = useVersions()
-
+    const versions = useVersions();
     const latestVersion = useLatestVersion();
-
-    const currentVersion = versions.find(
-        (version) => version.name === 'current',
-    );
-
+    const currentVersion = versions.find((version) => version.name === 'current');
     const pastVersions = versions.filter(
         (version) => version !== latestVersion && version.name !== 'current',
     );
 
-    console.log(latestVersion)
-    console.log(currentVersion)
-
     function DocumentationLabel() {
-        return (
-            "Documentation"
-        );
+        return 'Documentation';
     }
 
     function GitHubLabel() {
-        return (
-            "GitHub"
-        );
+        return 'GitHub';
     }
-
 
     return (
         <Layout
-            title="Versions"
-            description="RSS3 Versions page listing all documented site versions">
-            <main className="container margin-vert--lg">
-                <h1>
-                    RSS3 documentation versions
-                </h1>
+            title='Versions'
+            description='RSS3 Versions page listing all documented site versions'>
+            <main className='container margin-vert--lg'>
+                <h1>RSS3 documentation versions</h1>
 
-                <div className="margin-bottom--lg">
-                    <h3>
-                        Current version (Stable)
-                    </h3>
+                <div className='margin-bottom--lg'>
+                    <h3>Current version (Stable)</h3>
                     <p>
                         Here you can find the documentation for current released version.
                     </p>
@@ -68,7 +48,8 @@ export default function Version() {
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link href={`${repoUrl}/releases/tag/${latestVersion.name}`}>
+                                    <Link
+                                        href={`${repoUrl}/releases/tag/${latestVersion.name}`}>
                                         GitHub
                                     </Link>
                                 </td>
@@ -78,10 +59,8 @@ export default function Version() {
                 </div>
 
                 {currentVersion !== latestVersion && (
-                    <div className="margin-bottom--lg">
-                        <h3>
-                            Next version (Unreleased)
-                        </h3>
+                    <div className='margin-bottom--lg'>
+                        <h3>Next version (Unreleased)</h3>
                         <p>
                             Here you can find the documentation for work-in-process
                             unreleased version.
@@ -91,7 +70,8 @@ export default function Version() {
                                 <tr>
                                     <th>{currentVersion.label}</th>
                                     <td>
-                                        <Link to={`${currentVersion.path}/category/guide`}>
+                                        <Link
+                                            to={`${currentVersion.path}/category/guide`}>
                                             <DocumentationLabel />
                                         </Link>
                                     </td>
@@ -100,11 +80,9 @@ export default function Version() {
                         </table>
                     </div>
                 )}
-                {(pastVersions.length > 0) && (
-                    <div className="margin-bottom--lg">
-                        <h3>
-                            Past version (Deprecated)
-                        </h3>
+                {pastVersions.length > 0 && (
+                    <div className='margin-bottom--lg'>
+                        <h3>Past version (Deprecated)</h3>
                         <table>
                             <tbody>
                                 {pastVersions.map((version) => (
@@ -116,7 +94,8 @@ export default function Version() {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link href={`${repoUrl}/releases/tag/${version.name}`}>
+                                            <Link
+                                                href={`${repoUrl}/releases/tag/${version.name}`}>
                                                 <GitHubLabel />
                                             </Link>
                                         </td>
