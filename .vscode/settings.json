@@ -1,10 +1,5 @@
 {
-    "cSpell.words": [
-        "arweave",
-        "markdownlint",
-        "noreferrer",
-        "Roadmap"
-    ],
+    "cSpell.words": ["arweave", "Datetime", "markdownlint", "noreferrer", "Roadmap"],
     "eslint.alwaysShowStatus": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -13,5 +8,5 @@
     },
     "editor.codeActionsOnSave": {
         "source.fixAll": true
-    },
+    }
 }

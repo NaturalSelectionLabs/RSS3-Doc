@@ -1,359 +1,33 @@
 {
-    "components": {
-        "requestBodies": {
-            "NoteList": {
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "properties": {
-                                "addresses": {
-                                    "description": "The list of RSS3URIs",
-                                    "example": [
-                                        "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum",
-                                        "rss3://account:0x827431510a5D249cE4fdB7F00C83a3353F471848@ethereum"
-                                    ],
-                                    "type": "array"
-                                },
-                                "exclude_tags": {
-                                    "description": "Filter out notes by tags.",
-                                    "example": ["POAP"],
-                                    "items": {
-                                        "$ref": "#/components/schemas/Tags"
-                                    },
-                                    "type": "array"
-                                },
-                                "item_sources": {
-                                    "description": "Include Notes by indexing sources.",
-                                    "example": ["Ethereum NFT", "Ethereum Token"],
-                                    "items": {
-                                        "$ref": "#/components/schemas/Sources"
-                                    },
-                                    "type": "array"
-                                },
-                                "last_identifier": {
-                                    "description": "The cursor used for paging.",
-                                    "example": "rss3://note:0x5175b715019267bf8bcf37f95129c0ff400129eee675cdf261907701ac2da568-295-22@ethereum",
-                                    "type": "string"
-                                },
-                                "limit": {
-                                    "default": 100,
-                                    "description": "Limit the number of notes returned by the server.",
-                                    "example": 10,
-                                    "maximum": 100,
-                                    "type": "number"
-                                },
-                                "tags": {
-                                    "description": "Include notes by tags.",
-                                    "example": ["NFT", "Token"],
-                                    "items": {
-                                        "$ref": "#/components/schemas/Tags"
-                                    },
-                                    "type": "array"
-                                }
-                            },
-                            "required": ["addresses"]
-                        }
-                    }
-                },
-                "description": "Retrieve a list of notes belonging to the supplied list of RSS3URIs.",
-                "required": true
-            }
-        },
-        "schemas": {
-            "Attachments": {
-                "properties": {
-                    "address": {
-                        "example": "ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/539.png",
-                        "type": "string"
-                    },
-                    "mime_type": {
-                        "example": "image/png",
-                        "type": "string"
-                    },
-                    "size_in_bytes": {
-                        "example": 58017,
-                        "type": "number"
-                    },
-                    "type": {
-                        "example": "preview",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "Date": {
-                "description": "Conform to the RFC3339 Datetime format.",
-                "example": "2022-03-17T23:23:35.000Z",
-                "format": "date-time",
-                "type": "string"
-            },
-            "GetResponse": {
-                "properties": {
-                    "date_updated": {
-                        "$ref": "#/components/schemas/Date"
-                    },
-                    "identifier": {
-                        "description": "The identifier of the current request.",
-                        "example": "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum/notes?exclude_tags=POAP&item_sources=Ethereum+NFT&limit=10&tags=NFT",
-                        "type": "string"
-                    },
-                    "identifier_next": {
-                        "description": "The cursor of the current request.",
-                        "example": "rss3://account:0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944@ethereum/notes?exclude_tags=POAP&item_sources=Ethereum+NFT&last_identifier=rss3%3A%2F%2Fnote%3A0x4d911c97ffc43c87664f807ea63718a9382f95f5fdc98dcfa8e9b2ad3beccdd6-300-1%40polygon&limit=10&tags=NFT",
-                        "type": "string"
-                    },
-                    "list": {
-                        "description": "The requested Notes.",
-                        "items": {
-                            "$ref": "#/components/schemas/Note"
-                        },
-                        "type": "array"
-                    },
-                    "total": {
-                        "description": "The total number of Notes indexed for the instance.",
-                        "example": 123,
-                        "type": "number"
-                    },
-                    "version": {
-                        "description": "The version of the RSS3 PreGod instance.",
-                        "example": "v0.4.0",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "version",
-                    "date_updated",
-                    "identifier",
-                    "identifier_next",
-                    "total",
-                    "list"
-                ],
-                "type": "object"
-            },
-            "Metadata": {
-                "properties": {
-                    "collection_address": {
-                        "example": "0x5452c7fb99d99fab3cc1875e9da9829cb50f7a13",
-                        "type": "string"
-                    },
-                    "collection_name": {
-                        "example": "The Genesis RSS3 Avatar NFT",
-                        "type": "string"
-                    },
-                    "contract_type": {
-                        "example": "ERC721",
-                        "type": "string"
-                    },
-                    "from": {
-                        "example": "0x0000000000000000000000000000000000000000",
-                        "type": "string"
-                    },
-                    "log_index": {
-                        "example": 430,
-                        "type": "number"
-                    },
-                    "network": {
-                        "example": "ethereum",
-                        "type": "string"
-                    },
-                    "proof": {
-                        "example": "0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539",
-                        "type": "string"
-                    },
-                    "to": {
-                        "example": "0xc8b960d09c0078c18dcbe7eb9ab9d816bcca8944",
-                        "type": "string"
-                    },
-                    "token_id": {
-                        "example": "539",
-                        "type": "string"
-                    },
-                    "token_standard": {
-                        "example": "ERC721",
-                        "type": "string"
-                    },
-                    "token_symbol": {
-                        "example": "The Genesis RSS3 Avatar NFT",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "Note": {
-                "description": "A Note representing an action or an event generated by the instance.",
-                "properties": {
-                    "attachments": {
-                        "items": {
-                            "$ref": "#/components/schemas/Attachments"
-                        },
-                        "type": "array"
-                    },
-                    "authors": {
-                        "items": {
-                            "example": [
-                                "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum"
-                            ],
-                            "type": "string"
-                        },
-                        "type": "array"
-                    },
-                    "backlinks": {
-                        "example": "rss3://note:0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539/backlinks",
-                        "type": "string"
-                    },
-                    "date_created": {
-                        "$ref": "#/components/schemas/Date"
-                    },
-                    "date_updated": {
-                        "$ref": "#/components/schemas/Date"
-                    },
-                    "identifier": {
-                        "example": "rss3://note:0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539",
-                        "type": "string"
-                    },
-                    "links": {
-                        "example": "rss3://note:0x5e598d0ce1811daf39c350ee5e7b2dcbe59c68adb4ec609a6bba173f025bdd28-430-539/links",
-                        "type": "string"
-                    },
-                    "related_urls": {
-                        "items": {
-                            "example": [
-                                "https://etherscan.io/tx/0xa65b78f262904d2add2b7114dd51240e805335c370789afae341866a077b8eda",
-                                "https://etherscan.io/nft/0xe1d831ee54f88ef03fd7f5a15de943baa4d19070/328",
-                                "https://opensea.io/assets/0xe1d831ee54f88ef03fd7f5a15de943baa4d19070/328"
-                            ],
-                            "type": "string"
-                        },
-                        "type": "array"
-                    },
-                    "source": {
-                        "$ref": "#/components/schemas/Metadata"
-                    },
-                    "summary": {
-                        "example": "The Genesis RSS3 Avatar NFT is a collection of 10,000 unique avatars meticulously designed to identify RSS3 community members.",
-                        "type": "string"
-                    },
-                    "tags": {
-                        "items": {
-                            "$ref": "#/components/schemas/Tags"
-                        },
-                        "type": "array"
-                    },
-                    "title": {
-                        "example": "The Genesis RSS3 Avatar NFT #539",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "identifier",
-                    "date_created",
-                    "date_updated",
-                    "links",
-                    "backlinks",
-                    "related_urls",
-                    "tags",
-                    "authors",
-                    "title",
-                    "summary",
-                    "attachments",
-                    "source"
-                ],
-                "type": "object"
-            },
-            "PostResponse": {
-                "properties": {
-                    "date_updated": {
-                        "$ref": "#/components/schemas/Date"
-                    },
-                    "identifier_next": {
-                        "description": "The cursor of the current request.",
-                        "example": "rss3://account:0xC8b960D09C0078c18Dcbe7eB9AB9d816BcCa8944@ethereum/notes?last_identifier=rss3%3A%2F%2Fnote%3A0x90b2a3072915d194bf8d8eea937545bb196eeb0f4894f068d334b666cf75d2bc-178-18%40ethereum&limit=100",
-                        "type": "string"
-                    },
-                    "list": {
-                        "description": "The requested Notes.",
-                        "items": {
-                            "$ref": "#/components/schemas/Note"
-                        },
-                        "type": "array"
-                    },
-                    "total": {
-                        "description": "The total number of Notes indexed for the instance.",
-                        "example": 123,
-                        "type": "number"
-                    },
-                    "version": {
-                        "description": "The version of the RSS3 PreGod instance.",
-                        "example": "v0.4.0",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "version",
-                    "date_updated",
-                    "identifier_next",
-                    "total",
-                    "list"
-                ],
-                "type": "object"
-            },
-            "Sources": {
-                "enum": [
-                    "Ethereum ETH",
-                    "Ethereum ERC20",
-                    "Ethereum NFT",
-                    "Mirror Entry",
-                    "Gitcoin Contribution"
-                ],
-                "type": "string"
-            },
-            "Tags": {
-                "enum": ["NFT", "Token", "POAP", "Gitcoin", "Mirror Entry"],
-                "type": "string"
-            }
-        }
-    },
+    "openapi": "3.0.0",
     "info": {
         "license": {
             "name": "GNU Affero General Public License v3.0",
             "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
         },
         "title": "RSS3 PreGod API",
-        "version": "0.4.0"
+        "version": "1.0.0"
     },
-    "openapi": "3.0.0",
+    "servers": [
+        {
+            "description": "PreGod API Endpoint",
+            "url": "https://pregod.rss3.dev/v0.4.0"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Note"
+        }
+    ],
     "paths": {
-        "/notes": {
-            "post": {
-                "description": "Returns a list of Notes.",
-                "operationId": "getNotesByInstanceList",
-                "requestBody": {
-                    "$ref": "#/components/requestBodies/NoteList"
-                },
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/PostResponse"
-                                }
-                            }
-                        },
-                        "description": "A valid request"
-                    }
-                },
-                "summary": "Get Notes by an instance list",
-                "tags": ["Note"]
-            }
-        },
-        "/{instance}/notes": {
+        "/notes/{instance}": {
             "get": {
-                "description": "Returns a list of Notes. **This page may crash to [a bug](https://github.com/cloud-annotations/docusaurus-openapi/issues/183), please click on 'try again' if it happens. **",
+                "description": "Returns a list of Notes.",
                 "operationId": "getNotesByInstance",
                 "parameters": [
                     {
-                        "description": "The address of the instance, prefixed with `account:`, suffixed with `@platform`. **Possible `platform` values**: [`ethereum`, `solana`, `flow`, `arweave`]",
-                        "example": "account:0x000000A52a03835517E9d193B3c27626e1Bc96b1@ethereum",
+                        "description": "The address of the instance",
+                        "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
                         "required": true,
@@ -364,7 +38,7 @@
                     {
                         "description": "The cursor used for paging.",
                         "in": "query",
-                        "name": "last_identifier",
+                        "name": "cursor",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -377,53 +51,60 @@
                         "name": "limit",
                         "required": false,
                         "schema": {
-                            "default": 100,
-                            "maximum": 100,
+                            "default": 1000,
+                            "maximum": 1000,
                             "type": "number"
                         }
                     },
                     {
-                        "description": "Include Notes by tags.",
-                        "example": "Token",
-                        "explode": true,
+                        "description": "Filter notes by tag.",
+                        "example": "Transaction",
                         "in": "query",
-                        "name": "tags",
+                        "name": "tag",
                         "required": false,
                         "schema": {
-                            "items": {
-                                "$ref": "#/components/schemas/Tags"
-                            }
-                        },
-                        "style": "pipeDelimited"
+                            "$ref": "#/components/schemas/Tags"
+                        }
                     },
                     {
-                        "description": "Filter out Notes by tags.",
-                        "example": "NFT",
-                        "explode": true,
+                        "description": "Filter notes by type. Based on the `tag`, the available types are different: \r\n - `Transaction`: [`Transfer`, `Mint`, `Burn`]\r\n  - `Exchange`: [`Transfer`, `Withdraw`, `Deposit`, `Swap`] \r\n  - `Collectible`: [`Mint`, `Burn`,`Poap`] \r\n  - `Social`: [`Post`, `Comment`, `Share`, `Profile`, `Follow`, `Unfollow`, `Like`] \r\n - `Vote`: [`Propose`, `Vote`] \r\n - `Donation`: [`Donate`]",
+                        "example": "Transfer",
                         "in": "query",
-                        "name": "exclude_tags",
+                        "name": "type",
                         "required": false,
                         "schema": {
-                            "items": {
-                                "$ref": "#/components/schemas/Tags"
-                            },
-                            "type": "array"
-                        },
-                        "style": "pipeDelimited"
+                            "$ref": "#/components/schemas/Types"
+                        }
                     },
                     {
-                        "description": "Include Notes by indexing sources.",
-                        "example": "Ethereum NFT",
-                        "explode": true,
+                        "description": "Filter notes by network.",
+                        "example": "crossbell",
                         "in": "query",
-                        "name": "item_sources",
+                        "name": "network",
                         "required": false,
                         "schema": {
-                            "items": {
-                                "$ref": "#/components/schemas/Sources"
-                            }
-                        },
-                        "style": "pipeDelimited"
+                            "$ref": "#/components/schemas/Networks"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by platform.",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "platform",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by timestamp.",
+                        "example": "2022-06-10T19:07:35Z",
+                        "in": "query",
+                        "name": "timestamp",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/Date"
+                        }
                     }
                 ],
                 "responses": {
@@ -443,15 +124,153 @@
             }
         }
     },
-    "servers": [
-        {
-            "description": "PreGod API Endpoint",
-            "url": "https://pregod.rss3.dev/v0.4.0"
+    "components": {
+        "schemas": {
+            "Note": {
+                "description": "A Note representing actions generated by the instance.",
+                "properties": {
+                    "hash": {
+                        "description": "The identifier of the transaction. A unique identifier will be returned when a transaction hash is not available",
+                        "example": "0x590390e5e48b9717b4141cfa7aef1e1f0922893860743498d8f96580dd822c5b",
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "$ref": "#/components/schemas/Date"
+                    },
+                    "network": {
+                        "$ref": "#/components/schemas/Networks"
+                    },
+                    "actions": {
+                        "description": "An array of actions generated by the transaction.",
+                        "items": {
+                            "$ref": "#/components/schemas/Action"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "Action": {
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/Types"
+                    },
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "index": {
+                        "description": "The on-chain log index.",
+                        "type": "number"
+                    },
+                    "address_from": {
+                        "description": "The transaction initiator.",
+                        "type": "string"
+                    },
+                    "address_to": {
+                        "description": "The transaction recipient.",
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "description": "The metadata format varies from different combinations of filtering conditions.",
+                        "type": "object"
+                    },
+                    "platform": {
+                        "description": "The platform that generated the action.",
+                        "$ref": "#/components/schemas/Platforms"
+                    },
+                    "related_urls": {
+                        "description": "The related urls to the action.",
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "Date": {
+                "description": "Conform to the RFC3339 Datetime format.",
+                "example": "2022-03-17T23:23:35.00Z",
+                "format": "date-time",
+                "type": "string"
+            },
+            "Networks": {
+                "enum": [
+                    "ethereum",
+                    "ethereum_classic",
+                    "binance_smart_chain",
+                    "polygon",
+                    "zksync",
+                    "xdai",
+                    "arweave",
+                    "arbitrum",
+                    "optimism",
+                    "fantom",
+                    "avalanche",
+                    "crossbell"
+                ],
+                "type": "string"
+            },
+            "Platforms": {
+                "enum": ["crossbell"],
+                "type": "string"
+            },
+            "Tags": {
+                "enum": [
+                    "Transaction",
+                    "Exchange",
+                    "Collectible",
+                    "Social",
+                    "Donation",
+                    "Governance"
+                ],
+                "type": "string"
+            },
+            "Types": {
+                "enum": [
+                    "Mint",
+                    "Transfer",
+                    "Burn",
+                    "Transfer",
+                    "Withdraw",
+                    "Deposit",
+                    "Swap",
+                    "Transfer",
+                    "Mint",
+                    "Burn",
+                    "POAP",
+                    "Post",
+                    "Comment",
+                    "Share",
+                    "Profile",
+                    "Follow",
+                    "Unfollow",
+                    "Like",
+                    "Propose",
+                    "Vote",
+                    "Donate"
+                ],
+                "type": "string"
+            },
+            "GetResponse": {
+                "properties": {
+                    "total": {
+                        "description": "The total number of Notes indexed for the instance.",
+                        "example": 123,
+                        "type": "number"
+                    },
+                    "cursor": {
+                        "description": "The cursor of the current request.",
+                        "example": "0xbe1488fc2570f687cbaca8ecec0770586258146caa5791e517e659d813cf5e0a",
+                        "type": "string"
+                    },
+                    "result": {
+                        "description": "The requested Notes.",
+                        "items": {
+                            "$ref": "#/components/schemas/Note"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            }
         }
-    ],
-    "tags": [
-        {
-            "name": "Note"
-        }
-    ]
+    }
 }
