@@ -1,5 +1,17 @@
 {
-    "cSpell.words": ["arweave", "Datetime", "markdownlint", "noreferrer", "Roadmap"],
+    "cSpell.words": [
+        "arbitrum",
+        "arweave",
+        "Datetime",
+        "markdownlint",
+        "noreferrer",
+        "pancakeswap",
+        "Roadmap",
+        "sushiswap",
+        "unfollow",
+        "xdai",
+        "zksync"
+    ],
     "eslint.alwaysShowStatus": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
