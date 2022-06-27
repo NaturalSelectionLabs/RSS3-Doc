@@ -11,6 +11,7 @@
         "log": "node -e \"require('./devlog/util/helper.js').createNewLog()\"",
         "serve": "docusaurus serve",
         "start": "docusaurus start",
+        "dev": "docusaurus start",
         "swizzle": "docusaurus swizzle"
     },
     "browserslist": {

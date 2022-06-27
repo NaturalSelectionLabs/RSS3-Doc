@@ -67,7 +67,7 @@
                         }
                     },
                     {
-                        "description": "Filter notes by type. Based on the `tag`, the available types are different: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`transfer`, `withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`mint`, `burn`,`POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
+                        "description": "Filter notes by type. Based on the `tag`, the available types are different: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`trade`, `mint`, `burn`, `POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
                         "example": "Transfer",
                         "in": "query",
                         "name": "type",
@@ -257,17 +257,16 @@
                 "type": "string"
             },
             "Types": {
-                "description": "The available types are different based on the `tag`: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`transfer`, `withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`mint`, `burn`,`POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
+                "description": "The available types are different based on the `tag`: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`trade`, `mint`, `burn`, `POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
                 "enum": [
                     "mint",
                     "transfer",
                     "burn",
                     "cancel",
-                    "transfer",
                     "withdraw",
                     "deposit",
                     "swap",
-                    "transfer",
+                    "trade",
                     "mint",
                     "burn",
                     "POAP",
