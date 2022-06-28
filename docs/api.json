@@ -11,7 +11,7 @@
     "servers": [
         {
             "description": "PreGod API Endpoint",
-            "url": "https://test-pregod2.rss3.dev/"
+            "url": "https://pregod.rss3.dev/v1.0.0/"
         }
     ],
     "tags": [
@@ -57,17 +57,20 @@
                         }
                     },
                     {
-                        "description": "Filter notes by tag.",
+                        "description": "Filter notes by tags.",
                         "example": "Transaction",
                         "in": "query",
                         "name": "tag",
                         "required": false,
                         "schema": {
-                            "$ref": "#/components/schemas/Tags"
+                            "items": {
+                                "$ref": "#/components/schemas/Tags"
+                            },
+                            "type": "array"
                         }
                     },
                     {
-                        "description": "Filter notes by type. Based on the `tag`, the available types are different: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`trade`, `mint`, `burn`, `POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
+                        "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
                         "example": "Transfer",
                         "in": "query",
                         "name": "type",
@@ -77,27 +80,30 @@
                         }
                     },
                     {
-                        "description": "Filter notes by network.",
+                        "description": "Filter notes by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
                         "example": "crossbell",
                         "in": "query",
                         "name": "network",
                         "required": false,
                         "schema": {
-                            "$ref": "#/components/schemas/Networks"
+                            "items": {
+                                "$ref": "#/components/schemas/Networks"
+                            },
+                            "type": "array"
                         }
                     },
                     {
-                        "description": "Filter notes by platform.",
+                        "description": "Filter notes by platforms.",
                         "example": "crossbell",
                         "in": "query",
                         "name": "platform",
                         "required": false,
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/components/schemas/Platforms"
                         }
                     },
                     {
-                        "description": "Filter notes by timestamp.",
+                        "description": "Filter notes by timestamp. Conform to the RFC3339 Datetime format.",
                         "example": "2022-06-10T19:07:35Z",
                         "in": "query",
                         "name": "timestamp",
@@ -153,7 +159,7 @@
                         "$ref": "#/components/schemas/Networks"
                     },
                     "platform": {
-                        "description": "The platform that generated the action.",
+                        "description": "The platform that generated the action. There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms).",
                         "$ref": "#/components/schemas/Platforms"
                     },
                     "tag": {
@@ -212,7 +218,7 @@
                 "type": "string"
             },
             "Networks": {
-                "description": "The network where the transaction took place.",
+                "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
                 "enum": [
                     "ethereum",
                     "ethereum_classic",
@@ -230,16 +236,14 @@
                 "type": "string"
             },
             "Platforms": {
-                "description": "When the platform is unknown, the values from `Networks` is used as the platform.",
+                "description": "There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms). When `platform` is unknown, the transaction's `network` is used.",
                 "enum": [
                     "mirror",
                     "lens",
-                    "POAP",
                     "gitcoin",
                     "snapshot",
                     "uniswap",
-                    "sushiswap",
-                    "pancakeswap",
+                    "binance",
                     "crossbell"
                 ],
                 "type": "string"
@@ -257,7 +261,7 @@
                 "type": "string"
             },
             "Types": {
-                "description": "The available types are different based on the `tag`: \r\n - `transaction`: [`transfer`, `mint`, `burn`, `cancel`]\r\n  - `exchange`: [`withdraw`, `deposit`, `swap`] \r\n  - `collectible`: [`trade`, `mint`, `burn`, `POAP`] \r\n  - `social`: [`post`, `comment`, `share`, `profile`, `follow`, `unfollow`, `like`] \r\n - `vote`: [`propose`, `vote`] \r\n - `donation`: [`launch`, `donate`]",
+                "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
                 "enum": [
                     "mint",
                     "transfer",

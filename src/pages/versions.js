@@ -32,7 +32,7 @@ export default function Version() {
             description='RSS3 Versions page listing all documented site versions'>
             <main className='container margin-vert--lg'>
                 <h1>RSS3 documentation versions</h1>
-
+                <p>The versioning follows RSS3 PreGod API version.</p>
                 <div className='margin-bottom--lg'>
                     <h3>Current version (Stable)</h3>
                     <p>
