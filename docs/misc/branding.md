@@ -19,13 +19,13 @@ SVG
 GIF
 
 <p align="center">
-    <img src="/RSS3-Doc/img/logo.gif" />
+    <img src="/img/logo.gif" />
 </p>
 
 MP4
 
 <p align="center">
-    <video width="300" autoPlay muted playsInline src="/RSS3-Doc/img/logo.mp4"></video>
+    <video width="300" autoPlay muted playsInline src="/img/logo.mp4"></video>
 </p>
 
 ## Logo
