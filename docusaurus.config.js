@@ -5,24 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const copyright = `Copyright © ${new Date().getFullYear()} Natural Selection Labs.`;
 
-// defining the version for API
-const versions = require('./versions.json');
-const APIStableVersion = 'v0.4.0';
-const APIWIPVersion = 'v1.0.0';
-
-/** @type {import('@docusaurus/types').PluginConfig[]} */
-const versionList = [];
-
-versions.forEach((version) => {
-    versionList.push([
-        'docusaurus-plugin-openapi',
-        {
-            id: 'api',
-            path: `versioned_docs/version-${version}/api.json`,
-            routeBasePath: `/PreGod/${version}/api`,
-        },
-    ]);
-});
+const APIStableVersion = 'v1.0.0';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -52,12 +35,11 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    lastVersion: APIStableVersion,
+                    lastVersion: 'current',
                     versions: {
                         current: {
-                            label: APIWIPVersion,
-                            path: '/next',
-                            banner: 'unreleased',
+                            label: APIStableVersion,
+                            path: '/current',
                         },
                     },
                 },
@@ -76,15 +58,12 @@ const config = {
                 },
                 api: {
                     id: 'apiCurrent',
-                    path: 'docs/api.json',
-                    routeBasePath: '/PreGod/v1.0.0/api',
+                    path: 'src/api',
+                    routeBasePath: `/PreGod/api`,
                 },
             }),
         ],
     ],
-
-    plugins: versionList,
-
     themeConfig:
         /** @type {import('docusaurus-preset-openapi').ThemeConfig} */
         ({
@@ -140,7 +119,7 @@ const config = {
                             },
                             {
                                 label: 'PreGod API Playground',
-                                to: '/PreGod/v0.4.0/api',
+                                to: '/PreGod/api',
                             },
                         ],
                     },

@@ -23,7 +23,7 @@
                     "items": [
                         "product/PreGod/introduction",
                         {
-                            "href": "/PreGod/v0.4.0/api",
+                            "href": "/PreGod/api",
                             "label": "API Playground",
                             "type": "link"
                         },

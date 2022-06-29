@@ -58,7 +58,7 @@ const sidebars = {
                         {
                             type: 'link',
                             label: 'API Playground',
-                            href: '/PreGod/v1.0.0/api',
+                            href: '/PreGod/api',
                         },
                         {
                             type: 'category',

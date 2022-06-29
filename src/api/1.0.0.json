@@ -5,7 +5,7 @@
             "name": "GNU Affero General Public License v3.0",
             "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
         },
-        "title": "RSS3 PreGod API",
+        "title": "v1.0.0",
         "version": "1.0.0"
     },
     "servers": [
@@ -266,16 +266,14 @@
             "Types": {
                 "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
                 "enum": [
-                    "mint",
                     "transfer",
+                    "mint",
                     "burn",
                     "cancel",
                     "withdraw",
                     "deposit",
                     "swap",
                     "trade",
-                    "mint",
-                    "burn",
                     "POAP",
                     "post",
                     "comment",
