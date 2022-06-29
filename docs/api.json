@@ -51,8 +51,8 @@
                         "name": "limit",
                         "required": false,
                         "schema": {
-                            "default": 1000,
-                            "maximum": 1000,
+                            "default": 500,
+                            "maximum": 500,
                             "type": "number"
                         }
                     },
@@ -99,7 +99,10 @@
                         "name": "platform",
                         "required": false,
                         "schema": {
-                            "$ref": "#/components/schemas/Platforms"
+                            "items": {
+                                "$ref": "#/components/schemas/Platforms"
+                            },
+                            "type": "array"
                         }
                     },
                     {
