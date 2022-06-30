@@ -23,5 +23,3 @@ Extended Reading:
 - [Here comes RSS3](https://blog.rss3.io/1-here-comes-rss3)
 - [What is the relationship between RSS3 and RSS?](/misc/faq)
 - [Is RSS3 a SocialFi?](/misc/faq)
-
-## How RSS3 works

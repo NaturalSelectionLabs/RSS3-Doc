@@ -27,10 +27,26 @@ const sidebars = {
             },
             collapsed: false,
             items: [
-                'guide/introduction',
-                'guide/roadmap',
-                'guide/ecosystem',
-                'guide/partnership',
+                {
+                    type: 'link',
+                    label: 'Introduction',
+                    href: '/guide/introduction',
+                },
+                {
+                    type: 'link',
+                    label: 'Roadmap',
+                    href: '/guide/roadmap',
+                },
+                {
+                    type: 'link',
+                    label: 'Ecosystem',
+                    href: '/guide/ecosystem',
+                },
+                {
+                    type: 'link',
+                    label: 'Partnership',
+                    href: '/guide/partnership',
+                },
             ],
         },
         {
@@ -43,7 +59,6 @@ const sidebars = {
             },
             collapsed: false,
             items: [
-                'product/network',
                 {
                     type: 'category',
                     label: 'PreGod',
@@ -86,7 +101,11 @@ const sidebars = {
                 type: 'generated-index',
             },
             items: [
-                '$rss3/introduction',
+                {
+                    type: 'link',
+                    label: 'Introduction',
+                    href: '/rss3/introduction',
+                },
                 {
                     type: 'category',
                     label: 'Governance',
@@ -132,7 +151,11 @@ const sidebars = {
                 },
             ],
         },
-        'events',
+        {
+            type: 'link',
+            label: '🐝 Events',
+            href: '/events',
+        },
         {
             type: 'category',
             label: 'Misc',
@@ -152,7 +175,11 @@ const sidebars = {
                 },
             ],
         },
-        'support',
+        {
+            type: 'link',
+            label: 'Support RSS3',
+            href: 'Support',
+        },
     ],
 };
 
