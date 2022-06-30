@@ -1,5 +1,6 @@
 ---
 description: Learn more about RSS3 Branding
+displayed_sidebar: docs
 ---
 
 # Branding

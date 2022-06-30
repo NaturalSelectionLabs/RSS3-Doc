@@ -1,5 +1,6 @@
 ---
 description: The stuff we thought you'd like to know.
+displayed_sidebar: apiSidebar
 ---
 
 # FAQ

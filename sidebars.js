@@ -139,7 +139,18 @@ const sidebars = {
             link: {
                 type: 'generated-index',
             },
-            items: ['misc/branding', 'misc/faq'],
+            items: [
+                {
+                    type: 'link',
+                    label: 'FAQ',
+                    href: '/misc/faq',
+                },
+                {
+                    type: 'link',
+                    label: 'Branding',
+                    href: '/misc/branding',
+                },
+            ],
         },
         'support',
     ],

@@ -39,7 +39,6 @@ const config = {
                     versions: {
                         current: {
                             label: APIStableVersion,
-                            path: '/current',
                         },
                     },
                 },
@@ -153,7 +152,7 @@ const config = {
                             },
                             {
                                 label: 'Branding',
-                                to: '/docs/misc/branding',
+                                to: '/misc/branding',
                             },
                         ],
                     },

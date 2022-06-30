@@ -21,7 +21,7 @@ Derived from the best out of RSS, RSS3 is an open information syndication protoc
 Extended Reading:
 
 - [Here comes RSS3](https://blog.rss3.io/1-here-comes-rss3)
-- [What is the relationship between RSS3 and RSS?](../misc/faq#q-what-is-the-relationship-between-rss3-and-the-applications-revery-and-cheers)
-- [Is RSS3 a SocialFi?](../misc/faq#q-is-rss3-a-socialfi)
+- [What is the relationship between RSS3 and RSS?](/misc/faq)
+- [Is RSS3 a SocialFi?](/misc/faq)
 
 ## How RSS3 works

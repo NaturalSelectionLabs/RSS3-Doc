@@ -111,7 +111,18 @@
         },
         "events",
         {
-            "items": ["misc/branding", "misc/faq"],
+            "items": [
+                {
+                    "type": "link",
+                    "label": "FAQ",
+                    "href": "/misc/faq"
+                },
+                {
+                    "type": "link",
+                    "label": "Branding",
+                    "href": "/misc/branding"
+                }
+            ],
             "label": "Misc",
             "link": {
                 "type": "generated-index"
