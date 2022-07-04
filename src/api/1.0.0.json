@@ -17,6 +17,9 @@
     "tags": [
         {
             "name": "Note"
+        },
+        {
+            "name": "Profile"
         }
     ],
     "paths": {
@@ -121,7 +124,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetResponse"
+                                    "$ref": "#/components/schemas/GetNoteResponse"
                                 }
                             }
                         },
@@ -130,6 +133,64 @@
                 },
                 "summary": "Get Notes of an instance",
                 "tags": ["Note"]
+            }
+        },
+        "/profile/{instance}": {
+            "get": {
+                "description": "Returns the profiles of an instance.",
+                "operationId": "getProfileByInstance",
+                "parameters": [
+                    {
+                        "description": "The address of the instance",
+                        "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
+                        "in": "path",
+                        "name": "instance",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Filter profiles by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "network",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Networks"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Filter profiles by platforms.",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "platform",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Platforms"
+                            },
+                            "type": "array"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request."
+                    }
+                },
+                "summary": "Get Profiles of an instance",
+                "tags": ["Profile"]
             }
         }
     },
@@ -143,7 +204,7 @@
                     },
                     "hash": {
                         "description": "The identifier of the transaction. A unique identifier will be returned when a transaction hash is not available",
-                        "example": "0x590390e5e48b9717b4141cfa7aef1e1f0922893860743498d8f96580dd822c5b",
+                        "example": "0x...",
                         "type": "string"
                     },
                     "index": {
@@ -152,10 +213,12 @@
                     },
                     "address_from": {
                         "description": "The transaction initiator.",
+                        "example": "0x....",
                         "type": "string"
                     },
                     "address_to": {
                         "description": "The transaction recipient.",
+                        "example": "0x....",
                         "type": "string"
                     },
                     "network": {
@@ -193,14 +256,17 @@
                     },
                     "address_from": {
                         "description": "The transaction initiator.",
+                        "example": "0x...",
                         "type": "string"
                     },
                     "address_to": {
                         "description": "The transaction recipient.",
+                        "example": "0x...",
                         "type": "string"
                     },
                     "metadata": {
                         "description": "The metadata format varies from different combinations of filtering conditions.",
+                        "example": "The metadata format varies from different combinations of filtering conditions.",
                         "type": "object"
                     },
                     "platform": {
@@ -209,7 +275,11 @@
                     },
                     "related_urls": {
                         "description": "The urls related to the action.",
-                        "type": "array"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": ["https://...", "https://..."]
                     }
                 },
                 "type": "object"
@@ -289,7 +359,7 @@
                 ],
                 "type": "string"
             },
-            "GetResponse": {
+            "GetNoteResponse": {
                 "properties": {
                     "total": {
                         "description": "The total number of Notes indexed for the instance.",
@@ -305,6 +375,28 @@
                         "description": "The requested Notes.",
                         "items": {
                             "$ref": "#/components/schemas/Note"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "GetProfileResponse": {
+                "properties": {
+                    "total": {
+                        "description": "The total number of Profiles owned by the instance.",
+                        "example": 5,
+                        "type": "number"
+                    },
+                    "cursor": {
+                        "description": "The cursor of the current request.",
+                        "example": "1",
+                        "type": "number"
+                    },
+                    "result": {
+                        "description": "The requested Profiles.",
+                        "items": {
+                            "$ref": "#/components/schemas/Action"
                         },
                         "type": "array"
                     }
