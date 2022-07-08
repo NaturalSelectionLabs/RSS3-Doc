@@ -124,7 +124,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetNoteResponse"
+                                    "$ref": "#/components/schemas/NotesResponse"
                                 }
                             }
                         },
@@ -132,6 +132,29 @@
                     }
                 },
                 "summary": "Get Notes of an instance",
+                "tags": ["Note"]
+            }
+        },
+        "/notes": {
+            "post": {
+                "description": "Returns a list of Notes.",
+                "operationId": "getNotesByInstanceList",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/NoteList"
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotesResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request"
+                    }
+                },
+                "summary": "Get Notes by an instance list",
                 "tags": ["Note"]
             }
         },
@@ -182,7 +205,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetProfileResponse"
+                                    "$ref": "#/components/schemas/ProfileResponse"
                                 }
                             }
                         },
@@ -284,12 +307,6 @@
                 },
                 "type": "object"
             },
-            "Date": {
-                "description": "Conform to the RFC3339 Datetime format.",
-                "example": "2022-03-17T23:23:35.00Z",
-                "format": "date-time",
-                "type": "string"
-            },
             "Networks": {
                 "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
                 "enum": [
@@ -324,10 +341,10 @@
             "Tags": {
                 "description": "The tag describing the note or the action.",
                 "enum": [
+                    "social",
                     "transaction",
                     "exchange",
                     "collectible",
-                    "social",
                     "donation",
                     "governance"
                 ],
@@ -359,39 +376,43 @@
                 ],
                 "type": "string"
             },
-            "GetNoteResponse": {
-                "properties": {
-                    "total": {
-                        "description": "The total number of Notes indexed for the instance.",
-                        "example": 123,
-                        "type": "number"
-                    },
-                    "cursor": {
-                        "description": "The cursor of the current request.",
-                        "example": "0xbe1488fc2570f687cbaca8ecec0770586258146caa5791e517e659d813cf5e0a",
-                        "type": "string"
-                    },
-                    "result": {
-                        "description": "The requested Notes.",
-                        "items": {
-                            "$ref": "#/components/schemas/Note"
-                        },
-                        "type": "array"
-                    }
-                },
-                "type": "object"
+            "Date": {
+                "description": "Conform to the RFC3339 Datetime format.",
+                "example": "2022-03-17T23:23:35.00Z",
+                "format": "date-time",
+                "type": "string"
             },
-            "GetProfileResponse": {
+            "Total": {
+                "description": "The total number of Notes indexed for the instance.",
+                "example": 123,
+                "type": "number"
+            },
+            "Cursor": {
+                "description": "The cursor of the current request.",
+                "example": "0xe7cbc20724b3e540219b047fb2abf0ff953c2748e830afee87227939d21c9d29",
+                "type": "string"
+            },
+            "Limit": {
+                "default": 1000,
+                "description": "Limit the number of notes returned.",
+                "example": 10,
+                "maximum": 1000,
+                "type": "number"
+            },
+            "Result": {
+                "description": "The requested Notes.",
+                "items": {
+                    "$ref": "#/components/schemas/Note"
+                },
+                "type": "array"
+            },
+            "ProfileResponse": {
                 "properties": {
                     "total": {
-                        "description": "The total number of Profiles owned by the instance.",
-                        "example": 5,
-                        "type": "number"
+                        "$ref": "#/components/schemas/Total"
                     },
                     "cursor": {
-                        "description": "The cursor of the current request.",
-                        "example": "1",
-                        "type": "number"
+                        "$ref": "#/components/schemas/Cursor"
                     },
                     "result": {
                         "description": "The requested Profiles.",
@@ -402,6 +423,81 @@
                     }
                 },
                 "type": "object"
+            },
+            "NotesResponse": {
+                "properties": {
+                    "total": {
+                        "$ref": "#/components/schemas/Total"
+                    },
+                    "cursor": {
+                        "$ref": "#/components/schemas/Cursor"
+                    },
+                    "result": {
+                        "$ref": "#/components/schemas/Result"
+                    }
+                },
+                "type": "object"
+            },
+            "NotesPostListItem": {
+                "properties": {
+                    "address": {
+                        "description": "The list of instance addresses.",
+                        "example": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "type": {
+                        "example": ["post"],
+                        "items": {
+                            "$ref": "#/components/schemas/Types"
+                        },
+                        "type": "array"
+                    },
+                    "network": {
+                        "example": ["arweave"],
+                        "items": {
+                            "$ref": "#/components/schemas/Networks"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "example": ["mirror"],
+                        "items": {
+                            "$ref": "#/components/schemas/Platforms"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "requestBodies": {
+            "NoteList": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "list": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/NotesPostListItem"
+                                    },
+                                    "type": "array"
+                                },
+                                "cursor": {
+                                    "$ref": "#/components/schemas/Cursor"
+                                },
+                                "limit": {
+                                    "$ref": "#/components/schemas/Limit"
+                                }
+                            },
+                            "required": ["list"]
+                        }
+                    }
+                },
+                "description": "Retrieve a list of notes belonging to the supplied list of RSS3URIs.",
+                "required": true
             }
         }
     }
