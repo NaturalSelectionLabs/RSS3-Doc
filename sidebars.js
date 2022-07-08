@@ -69,11 +69,7 @@ const sidebars = {
                                     'Some tutorials to help you get started with PreGod.',
                             },
                             collapsed: true,
-                            items: [
-                                'product/PreGod/Tutorials/cookbook',
-                                // 'product/PreGod/Tutorials/mirror_reader', TODO: content migration
-                                'product/PreGod/Tutorials/improving_feed_granularity',
-                            ],
+                            items: ['product/PreGod/Tutorials/cookbook'],
                         },
                     ],
                 },
