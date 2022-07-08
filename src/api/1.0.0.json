@@ -339,7 +339,7 @@
                     "transfer",
                     "mint",
                     "burn",
-                    "cancel",
+                    "self",
                     "withdraw",
                     "deposit",
                     "swap",
