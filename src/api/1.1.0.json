@@ -1,0 +1,530 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "license": {
+            "name": "GNU Affero General Public License v3.0",
+            "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
+        },
+        "title": "v1.1.0",
+        "version": "1.1.0"
+    },
+    "servers": [
+        {
+            "description": "PreGod API Endpoint",
+            "url": "https://pregod.rss3.dev/v1.1.0/"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Note"
+        },
+        {
+            "name": "Profile"
+        }
+    ],
+    "paths": {
+        "/notes/{instance}": {
+            "get": {
+                "description": "Returns a list of Notes.",
+                "operationId": "getNotesByInstance",
+                "parameters": [
+                    {
+                        "description": "The address of the instance",
+                        "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
+                        "in": "path",
+                        "name": "instance",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Whether to trigger a refresh of all Notes on PreGod.",
+                        "example": false,
+                        "in": "query",
+                        "name": "refresh",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "description": "The cursor used for paging.",
+                        "in": "query",
+                        "name": "cursor",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Limit the number of Notes returned by the server.",
+                        "example": 10,
+                        "in": "query",
+                        "name": "limit",
+                        "required": false,
+                        "schema": {
+                            "default": 500,
+                            "maximum": 500,
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by transaction hash.",
+                        "example": "0x...",
+                        "in": "query",
+                        "name": "hash",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by tags.",
+                        "example": "Transaction",
+                        "in": "query",
+                        "name": "tag",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Tags"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
+                        "example": "Transfer",
+                        "in": "query",
+                        "name": "type",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/Types"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "network",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Networks"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by platforms.",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "platform",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Platforms"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Filter notes by timestamp. Conform to the RFC3339 Datetime format.",
+                        "example": "2022-06-10T19:07:35Z",
+                        "in": "query",
+                        "name": "timestamp",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/Date"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotesResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request."
+                    }
+                },
+                "summary": "Get Notes of an instance",
+                "tags": ["Note"]
+            }
+        },
+        "/notes": {
+            "post": {
+                "description": "Returns a list of Notes.",
+                "operationId": "getNotesByInstanceList",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/NoteList"
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotesResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request"
+                    }
+                },
+                "summary": "Get Notes by an instance list",
+                "tags": ["Note"]
+            }
+        },
+        "/profiles/{instance}": {
+            "get": {
+                "description": "Returns the profiles of an instance.",
+                "operationId": "getProfileByInstance",
+                "parameters": [
+                    {
+                        "description": "The address of the instance",
+                        "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
+                        "in": "path",
+                        "name": "instance",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Filter profiles by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "network",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Networks"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "Filter profiles by platforms.",
+                        "example": "crossbell",
+                        "in": "query",
+                        "name": "platform",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Platforms"
+                            },
+                            "type": "array"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProfileResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request."
+                    }
+                },
+                "summary": "Get Profiles of an instance",
+                "tags": ["Profile"]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Note": {
+                "description": "A Note representing actions generated by the instance.",
+                "properties": {
+                    "timestamp": {
+                        "$ref": "#/components/schemas/Date"
+                    },
+                    "hash": {
+                        "description": "The identifier of the transaction. A unique identifier will be returned when a transaction hash is not available",
+                        "example": "0x...",
+                        "type": "string"
+                    },
+                    "index": {
+                        "description": "The on-chain log index.",
+                        "type": "number"
+                    },
+                    "address_from": {
+                        "description": "The transaction initiator.",
+                        "example": "0x....",
+                        "type": "string"
+                    },
+                    "address_to": {
+                        "description": "The transaction recipient.",
+                        "example": "0x....",
+                        "type": "string"
+                    },
+                    "network": {
+                        "$ref": "#/components/schemas/Networks"
+                    },
+                    "platform": {
+                        "description": "The platform that generated the action. There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms).",
+                        "$ref": "#/components/schemas/Platforms"
+                    },
+                    "tag": {
+                        "description": "The tag describing the note based on its internal actions.",
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "actions": {
+                        "description": "An array of actions generated by the transaction.",
+                        "items": {
+                            "$ref": "#/components/schemas/Action"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "Action": {
+                "properties": {
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/Types"
+                    },
+                    "index": {
+                        "description": "The on-chain log index.",
+                        "type": "number"
+                    },
+                    "address_from": {
+                        "description": "The transaction initiator.",
+                        "example": "0x...",
+                        "type": "string"
+                    },
+                    "address_to": {
+                        "description": "The transaction recipient.",
+                        "example": "0x...",
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "description": "The metadata format varies from different combinations of filtering conditions.",
+                        "example": "The metadata format varies from different combinations of filtering conditions.",
+                        "type": "object"
+                    },
+                    "platform": {
+                        "description": "The platform that generated the action.",
+                        "$ref": "#/components/schemas/Platforms"
+                    },
+                    "related_urls": {
+                        "description": "The urls related to the action.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": ["https://...", "https://..."]
+                    }
+                },
+                "type": "object"
+            },
+            "Networks": {
+                "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                "enum": [
+                    "ethereum",
+                    "ethereum_classic",
+                    "binance_smart_chain",
+                    "polygon",
+                    "zksync",
+                    "xdai",
+                    "arweave",
+                    "arbitrum",
+                    "optimism",
+                    "fantom",
+                    "avalanche",
+                    "crossbell"
+                ],
+                "type": "string"
+            },
+            "Platforms": {
+                "description": "There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms). When `platform` is unknown, the transaction's `network` is used.",
+                "enum": [
+                    "mirror",
+                    "lens",
+                    "gitcoin",
+                    "snapshot",
+                    "uniswap",
+                    "binance",
+                    "crossbell"
+                ],
+                "type": "string"
+            },
+            "Tags": {
+                "description": "The tag describing the note or the action.",
+                "enum": [
+                    "social",
+                    "transaction",
+                    "exchange",
+                    "collectible",
+                    "donation",
+                    "governance"
+                ],
+                "type": "string"
+            },
+            "Types": {
+                "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
+                "enum": [
+                    "transfer",
+                    "mint",
+                    "burn",
+                    "self",
+                    "withdraw",
+                    "deposit",
+                    "swap",
+                    "trade",
+                    "poap",
+                    "post",
+                    "comment",
+                    "share",
+                    "profile",
+                    "follow",
+                    "unfollow",
+                    "like",
+                    "propose",
+                    "vote",
+                    "launch",
+                    "donate"
+                ],
+                "type": "string"
+            },
+            "Date": {
+                "description": "Conform to the RFC3339 Datetime format.",
+                "example": "2022-03-17T23:23:35.00Z",
+                "format": "date-time",
+                "type": "string"
+            },
+            "Refresh": {
+                "description": "Whether to trigger a refresh of all Notes on PreGod.",
+                "example": false,
+                "default": false,
+                "type": "boolean"
+            },
+            "Total": {
+                "description": "The total number of Notes indexed for the instance.",
+                "example": 123,
+                "type": "number"
+            },
+            "Cursor": {
+                "description": "The cursor of the current request.",
+                "example": "0x...",
+                "type": "string"
+            },
+            "Limit": {
+                "default": 1000,
+                "description": "Limit the number of notes returned.",
+                "example": 10,
+                "maximum": 1000,
+                "type": "number"
+            },
+            "Result": {
+                "description": "The requested Notes.",
+                "items": {
+                    "$ref": "#/components/schemas/Note"
+                },
+                "type": "array"
+            },
+            "ProfileResponse": {
+                "properties": {
+                    "total": {
+                        "$ref": "#/components/schemas/Total"
+                    },
+                    "cursor": {
+                        "$ref": "#/components/schemas/Cursor"
+                    },
+                    "result": {
+                        "description": "The requested Profiles.",
+                        "items": {
+                            "$ref": "#/components/schemas/Action"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "NotesResponse": {
+                "properties": {
+                    "total": {
+                        "$ref": "#/components/schemas/Total"
+                    },
+                    "cursor": {
+                        "$ref": "#/components/schemas/Cursor"
+                    },
+                    "result": {
+                        "$ref": "#/components/schemas/Result"
+                    }
+                },
+                "type": "object"
+            },
+            "NotesPostListItem": {
+                "properties": {
+                    "address": {
+                        "description": "The list of instance addresses.",
+                        "example": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "type": {
+                        "example": ["post"],
+                        "items": {
+                            "$ref": "#/components/schemas/Types"
+                        },
+                        "type": "array"
+                    },
+                    "network": {
+                        "example": ["arweave"],
+                        "items": {
+                            "$ref": "#/components/schemas/Networks"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "example": ["mirror"],
+                        "items": {
+                            "$ref": "#/components/schemas/Platforms"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "requestBodies": {
+            "NoteList": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "list": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/NotesPostListItem"
+                                    },
+                                    "type": "array"
+                                },
+                                "cursor": {
+                                    "$ref": "#/components/schemas/Cursor"
+                                },
+                                "limit": {
+                                    "$ref": "#/components/schemas/Limit"
+                                }
+                            },
+                            "required": ["list"]
+                        }
+                    }
+                },
+                "description": "Retrieve a list of notes belonging to the supplied list of RSS3URIs.",
+                "required": true
+            }
+        }
+    }
+}

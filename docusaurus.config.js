@@ -5,8 +5,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const copyright = `Copyright © ${new Date().getFullYear()} Natural Selection Labs.`;
 
-const APIStableVersion = 'v1.0.0';
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'RSS3',
@@ -35,12 +33,8 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    lastVersion: 'current',
-                    versions: {
-                        current: {
-                            label: APIStableVersion,
-                        },
-                    },
+                    lastVersion: 'v1.0.0',
+                    includeCurrentVersion: false,
                 },
                 blog: {
                     blogTitle: 'RSS3 Dev Log',

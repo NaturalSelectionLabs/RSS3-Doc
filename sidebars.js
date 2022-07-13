@@ -55,6 +55,7 @@ const sidebars = {
                     collapsed: false,
                     items: [
                         'product/PreGod/introduction',
+                        'product/PreGod/datasource',
                         {
                             type: 'link',
                             label: 'API Playground',
