@@ -34,25 +34,49 @@ All types under the tag `transaction` (`transfer`, `mint`, `burn`, `self`) share
 ## Exchange
 
 <Tabs>
-  <TabItem value="exchange_withdraw" label="withdraw">
+  <TabItem value="exchange_deposit_withdraw" label="deposit/withdraw">
 
 `withdraw` indicates a token transfer from either a CEX or a DEX.
 
-TBA
+`deposit` indicates a token transfer to either a CEX or a DEX.
+
+They both follow the same UMS as `transaction`
+
+```json
+{
+    "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png",
+    "name": "Polygon",
+    "symbol": "MATIC",
+    "decimals": 18,
+    "token_value": "1000000000000000000",
+    "token_address": "0x0000000000000000000000000000000000001010",
+    "token_standard": "ERC-20"
+}
+```
 
   </TabItem>
-
-<TabItem value='exchange_deposit' label='deposit'>
-
-`deposit` indicates a token transfer from either a CEX or a DEX.
-
-</TabItem>
 
   <TabItem value="exchange_swap" label="swap">
 
 `swap` indicates a token swapping on a DEX.
 
-TBA
+```json
+{
+    "protocol": "Uniswap V2",
+    "token_to": {
+        "value": "28.652612",
+        "symbol": "USDT",
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "decimals": 6
+    },
+    "token_from": {
+        "value": "28.622667",
+        "symbol": "USDC",
+        "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "decimals": 6
+    }
+}
+```
 
   </TabItem>
 </Tabs>
@@ -182,7 +206,6 @@ TBA
 
 ```json
 {
-    "id": 13,
     "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
     "title": "ethers.js - Complete, Simple and Tiny",
     "platform": "gitcoin",
@@ -217,11 +240,19 @@ TBA
 
 ```json
 {
-    "id": 13,
-    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
-    "title": "ethers.js - Complete, Simple and Tiny",
-    "platform": "gitcoin",
-    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+    "type_on_platform": "proposal",
+    "id": "123",
+    "title": "some agenda",
+    "body": " description of the proposal",
+    "options": ["1. yea", "2. neh", "3. abstain"],
+    "startAt": "2022-01-01T15:00:00Z",
+    "endAt": "2022-01-02T15:00:00Z"，
+    "organization": {
+      "type_on_platform": "charity",
+      "id": "8818",
+      "name": "some charity",
+      "about": " description of the organization"
+    }
 }
 ```
 
@@ -232,11 +263,23 @@ TBA
 
 ```json
 {
-    "id": 13,
-    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
-    "title": "ethers.js - Complete, Simple and Tiny",
-    "platform": "gitcoin",
-    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+    "type_on_platform": "vote",
+    "choice": "1",
+    "proposal": {
+        "type_on_platform": "proposal",
+        "id": "123",
+        "title": "some agenda",
+        "body": " description of the proposal",
+        "options": ["1. yea", "2. neh", "3. abstain"],
+        "startAt": "2022-01-01T15:00:00Z",
+        "endAt": "2022-01-02T15:00:00Z"，
+        "organization": {
+          "type_on_platform": "charity",
+          "id": "8818",
+          "name": "some charity",
+          "about": " description of the organization"
+        }
+    }
 }
 ```
 
