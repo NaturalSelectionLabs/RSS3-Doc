@@ -34,7 +34,6 @@ const config = {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
                     lastVersion: 'v1.0.0',
-                    includeCurrentVersion: false,
                 },
                 blog: {
                     blogTitle: 'RSS3 Dev Log',

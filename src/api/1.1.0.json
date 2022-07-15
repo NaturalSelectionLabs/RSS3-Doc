@@ -5,7 +5,7 @@
             "name": "GNU Affero General Public License v3.0",
             "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
         },
-        "title": "v1.1.0",
+        "title": "v1.1.0-beta",
         "version": "1.1.0"
     },
     "servers": [
@@ -29,7 +29,7 @@
                 "operationId": "getNotesByInstance",
                 "parameters": [
                     {
-                        "description": "The address of the instance",
+                        "description": "The address or ENS name of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -184,7 +184,7 @@
                 "operationId": "getProfileByInstance",
                 "parameters": [
                     {
-                        "description": "The address of the instance",
+                        "description": "The address or ENS name of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -402,6 +402,11 @@
                 "format": "date-time",
                 "type": "string"
             },
+            "Address": {
+                "description": "A 0x address or an ENS name",
+                "example": "0x...",
+                "type": "string"
+            },
             "Refresh": {
                 "description": "Whether to trigger a refresh of all Notes on PreGod.",
                 "example": false,
@@ -468,8 +473,43 @@
                 "properties": {
                     "address": {
                         "description": "The list of instance addresses.",
-                        "example": "0x827431510a5d249ce4fdb7f00c83a3353f471848",
-                        "type": "string"
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "type": {
+                        "example": ["post"],
+                        "items": {
+                            "$ref": "#/components/schemas/Types"
+                        },
+                        "type": "array"
+                    },
+                    "network": {
+                        "example": ["arweave"],
+                        "items": {
+                            "$ref": "#/components/schemas/Networks"
+                        },
+                        "type": "array"
+                    },
+                    "platform": {
+                        "example": ["mirror"],
+                        "items": {
+                            "$ref": "#/components/schemas/Platforms"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "NotesPostGlobalItem": {
+                "properties": {
+                    "address": {
+                        "description": "The list of instance addresses.",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        },
+                        "type": "array"
                     },
                     "tag": {
                         "$ref": "#/components/schemas/Tags"
@@ -505,6 +545,12 @@
                     "application/json": {
                         "schema": {
                             "properties": {
+                                "global": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/NotesPostGlobalItem"
+                                    },
+                                    "type": "array"
+                                },
                                 "list": {
                                     "items": {
                                         "$ref": "#/components/schemas/NotesPostListItem"
@@ -516,13 +562,15 @@
                                 },
                                 "limit": {
                                     "$ref": "#/components/schemas/Limit"
+                                },
+                                "refresh": {
+                                    "$ref": "#/components/schemas/Refresh"
                                 }
-                            },
-                            "required": ["list"]
+                            }
                         }
                     }
                 },
-                "description": "Retrieve a list of notes belonging to the supplied list of RSS3URIs.",
+                "description": "Retrieve a list of notes belonging to the supplied list of addresses. `global` and `list` are mutually exclusive. `list` allows filter per address, and may be deprecated in the future.",
                 "required": true
             }
         }
