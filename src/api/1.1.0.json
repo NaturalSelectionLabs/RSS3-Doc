@@ -404,7 +404,7 @@
             },
             "Address": {
                 "description": "A 0x address or an ENS name",
-                "example": "0x...",
+                "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                 "type": "string"
             },
             "Refresh": {
