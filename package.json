@@ -3,7 +3,7 @@
     "version": "0.4.0",
     "private": false,
     "scripts": {
-        "build": "docusaurus build",
+        "build": "docusaurus build --no-minify",
         "clear": "docusaurus clear",
         "deploy": "export USE_SSH=true && docusaurus deploy",
         "docusaurus": "docusaurus",
