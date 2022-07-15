@@ -1,0 +1,244 @@
+---
+description: Metadata Schemas
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Unified Metadata Schemas
+
+PreGod enables developers to swiftly plug in the data returned by its APIs, without worrying about the underlying structure. We take care of all the dirty work to provide Unified Metadata Schemas (UMS) for all `type`.
+
+Below you will see a list of types and the corresponding UMS.
+
+:::info
+This page is still being revised, the UMS listed above may subject to future changes.
+:::
+
+## Transaction
+
+All types under the tag `transaction` (`transfer`, `mint`, `burn`, `self`) share the same UMS:
+
+```json
+{
+    "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png",
+    "name": "Polygon",
+    "symbol": "MATIC",
+    "decimals": 18,
+    "token_value": "1000000000000000000",
+    "token_address": "0x0000000000000000000000000000000000001010",
+    "token_standard": "ERC-20"
+}
+```
+
+## Exchange
+
+<Tabs>
+  <TabItem value="exchange_withdraw" label="withdraw">
+
+`withdraw` indicates a token transfer from either a CEX or a DEX.
+
+TBA
+
+  </TabItem>
+
+<TabItem value='exchange_deposit' label='deposit'>
+
+`deposit` indicates a token transfer from either a CEX or a DEX.
+
+</TabItem>
+
+  <TabItem value="exchange_swap" label="swap">
+
+`swap` indicates a token swapping on a DEX.
+
+TBA
+
+  </TabItem>
+</Tabs>
+
+## Collectible
+
+All types under the tag `collectible` (`trade`, `mint`, `burn`, `self`), except `poap`, share the same UMS:
+
+<Tabs>
+  <TabItem value="collectible" label="collectible">
+
+```json
+{
+  "token_id": "3111",
+  "token_value": "1",
+  "nft_metadata": { // `nft_metadata` is unpredictable
+    "name": "RSS3 Whitepaper v1.0",
+    "image": "ipfs://bafybeialcb7udgz56dtpzn7dcchujd5jt6jcu7ugg4y32e2jsvg3z477fq/rss3-whitepaper-no-1.png",
+    "attributes": [
+      {
+        "value": "Natural Selection Labs",
+        "trait_type": "Author(s)"
+      },
+      ...
+    ],
+    "description": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
+    "animation_url": "ipfs://bafybeif2wobpdjlkv7k33k2at4agirvmrs5zqa7hm4wvz72teui6bttg7y/rss3-whitepaper-no-1.glb",
+    "external_link": "https://rss3.io/RSS3-Whitepaper.pdf"
+    },
+  "token_address": "0xa6f969045641cf486a747a2688f3a5a6d43cd0d8",
+  "token_standard": "ERC-721"
+```
+
+</TabItem>
+
+  <TabItem value="collectible_poap" label="poap">
+
+TBA
+
+</TabItem>
+
+</Tabs>
+
+## Social
+
+<Tabs>
+  <TabItem value="social_post" label="post/revise">
+
+`post` indicates an action of publishing a new post.
+
+`revise` indicates an action of updating an existing post.
+
+```json
+{
+    "title": "Guess what's coming",
+    "body": "Guess what's coming",
+    "media": [
+        {
+            "address": "https://ipfs.infura.io/ipfs/QmXGp2tq7yTXMoeKbDqAsFNW9Qw1GGzWbEFiXmhKxVikGj",
+            "mime_type": "image/png"
+        }
+    ],
+    "type_on_platform": "Post"
+}
+```
+
+</TabItem>
+
+<TabItem value='social_comment_share' label='comment/share'>
+
+`comment` indicates a comment on an existing post.
+
+`share` indicates a sharing of an existing post, think of it as a retweet.
+
+```json
+{
+    "body": "RSS3 is building a Lens integration!",
+    "target": {
+        "body": "Yo! from RSS3! https://rss3.io",
+        "type_on_platform": "Post"
+    },
+    "type_on_platform": "Comment"
+}
+```
+
+</TabItem>
+
+  <TabItem value="social_profile" label="profile">
+
+`profile` indicates an action of creating a new credential.
+
+```json
+{
+    "bio": "The awesome Henry.",
+    "name": "Henry",
+    "handle": "Henry",
+    "source": "crossbell",
+    "network": "crossbell",
+    "platform": "",
+    "profile_uri": ["ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1021.png"]
+}
+```
+
+</TabItem>
+
+  <TabItem value="social_follow_unfollow" label="follow/unfollow">
+
+`follow/unfollow` indicates an action of follow/unfollow-ing an existing profile.
+
+TBA
+
+</TabItem>
+
+  <TabItem value="social_link" label="link">
+
+TBA
+
+</TabItem>
+</Tabs>
+
+## Donation
+
+<Tabs>
+  <TabItem value="donation_launch" label="launch">
+
+`launch` indicates an action of launching a new grant.
+
+```json
+{
+    "id": 13,
+    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
+    "title": "ethers.js - Complete, Simple and Tiny",
+    "platform": "gitcoin",
+    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+}
+```
+
+</TabItem>
+  <TabItem value="donation_donate" label="donate">
+
+`donate` indicates a token transfer to an established grant.
+
+```json
+{
+    "id": 13,
+    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
+    "title": "ethers.js - Complete, Simple and Tiny",
+    "platform": "gitcoin",
+    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Governance
+
+<Tabs>
+  <TabItem value="governance_propose" label="propose">
+
+`propose` indicates an action of creating a new proposal.
+
+```json
+{
+    "id": 13,
+    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
+    "title": "ethers.js - Complete, Simple and Tiny",
+    "platform": "gitcoin",
+    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+}
+```
+
+</TabItem>
+  <TabItem value="governance_vote" label="vote">
+
+`vote` indicates a voting action on an established proposal.
+
+```json
+{
+    "id": 13,
+    "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
+    "title": "ethers.js - Complete, Simple and Tiny",
+    "platform": "gitcoin",
+    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+}
+```
+
+</TabItem>
+</Tabs>

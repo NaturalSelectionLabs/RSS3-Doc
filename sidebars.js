@@ -56,6 +56,7 @@ const sidebars = {
                     items: [
                         'product/PreGod/introduction',
                         'product/PreGod/datasource',
+                        'product/PreGod/unified_metadata_schemas',
                         {
                             type: 'link',
                             label: 'API Playground',
