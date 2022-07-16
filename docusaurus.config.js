@@ -59,6 +59,9 @@ const config = {
     themeConfig:
         /** @type {import('docusaurus-preset-openapi').ThemeConfig} */
         ({
+            defaultMode: 'light',
+            disableSwitch: false,
+            respectPrefersColorScheme: true,
             navbar: {
                 title: 'RSS3',
                 logo: {
