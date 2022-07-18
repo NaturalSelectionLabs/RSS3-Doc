@@ -327,6 +327,55 @@
                 },
                 "type": "object"
             },
+            "Profile": {
+                "properties": {
+                    "network": {
+                        "$ref": "#/components/schemas/Networks"
+                    },
+                    "platform": {
+                        "description": "The platform that generated the action.",
+                        "$ref": "#/components/schemas/Platforms"
+                    },
+                    "name": {
+                        "description": "The name of the profile.",
+                        "type": "string"
+                    },
+                    "handle": {
+                        "description": "The handle of the profile.",
+                        "type": "string"
+                    },
+                    "bio": {
+                        "description": "The bio of the profile.",
+                        "type": "string"
+                    },
+                    "expire_at": {
+                        "description": "The expiry date of the profile.",
+                        "$ref": "#/components/schemas/Date"
+                    },
+                    "profile_uri": {
+                        "description": "The profile pictures of the profile.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "banner_uri": {
+                        "description": "The banner pictures of the profile.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "social_uri": {
+                        "description": "The connected social accounts of the profile.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
             "Networks": {
                 "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
                 "enum": [
@@ -446,9 +495,9 @@
                         "$ref": "#/components/schemas/Cursor"
                     },
                     "result": {
-                        "description": "The requested Profiles.",
+                        "description": "The list of Profiles of the address.",
                         "items": {
-                            "$ref": "#/components/schemas/Action"
+                            "$ref": "#/components/schemas/Profile"
                         },
                         "type": "array"
                     }
