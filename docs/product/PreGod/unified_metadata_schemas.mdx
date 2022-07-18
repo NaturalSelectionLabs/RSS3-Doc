@@ -165,12 +165,17 @@ TBA
 
 </TabItem>
 
-  <TabItem value="social_profile" label="profile">
+  <TabItem value="social_profile_follow_unfollow" label="profile/follow/unfollow">
 
 `profile` indicates an action of creating a new credential.
 
+`follow/unfollow` indicates an action of follow/unfollow-ing an existing profile.
+
+Therefore they both follow the same UMS:
+
 ```json
 {
+    "address": "0x...",
     "bio": "The awesome Henry.",
     "name": "Henry",
     "handle": "Henry",
@@ -182,14 +187,6 @@ TBA
     "social_uri": []
 }
 ```
-
-</TabItem>
-
-  <TabItem value="social_follow_unfollow" label="follow/unfollow">
-
-`follow/unfollow` indicates an action of follow/unfollow-ing an existing profile.
-
-TBA
 
 </TabItem>
 
