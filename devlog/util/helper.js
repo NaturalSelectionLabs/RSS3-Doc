@@ -9,7 +9,7 @@ const createNewLog = () => {
 title: 
 authors: [Henry]
 date: ${date}
-tags: [Changelog, PreGod v0.4.0]
+tags: [Changelog,]
 ---
 
 
