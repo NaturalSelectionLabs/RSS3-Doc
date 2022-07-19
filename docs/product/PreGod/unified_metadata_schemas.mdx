@@ -17,12 +17,13 @@ This page is still being revised, the UMS listed below may subject to future cha
 
 ## Transaction
 
-All types under the tag `transaction` (`transfer`, `mint`, `burn`, `self`) share the same UMS:
+All types under the tag `transaction` (`transfer`, `mint`, `burn`) share the same UMS:
 
 ```json
 {
     "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png",
     "name": "Polygon",
+    "network": "Polygon",
     "symbol": "MATIC",
     "decimals": 18,
     "token_value": "1000000000000000000",
@@ -46,6 +47,7 @@ They both follow the same UMS as `transaction`
 {
     "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png",
     "name": "Polygon",
+    "network": "Polygon",
     "symbol": "MATIC",
     "decimals": 18,
     "token_value": "1000000000000000000",
@@ -64,16 +66,24 @@ They both follow the same UMS as `transaction`
 {
     "protocol": "Uniswap V2",
     "token_to": {
-        "value": "28.652612",
+        "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "name": "Tether USD",
+        "network": "Polygon",
         "symbol": "USDT",
-        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-        "decimals": 6
+        "decimals": 6,
+        "token_value": "28652612",
+        "token_address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "token_standard": "ERC-20"
     },
     "token_from": {
-        "value": "28.622667",
+        "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "name": "USD Coin",
+        "network": "Polygon",
         "symbol": "USDC",
-        "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "decimals": 6
+        "decimals": 6,
+        "value": "28622667",
+        "token_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "token_standard": "ERC-20"
     }
 }
 ```
@@ -83,7 +93,7 @@ They both follow the same UMS as `transaction`
 
 ## Collectible
 
-All types under the tag `collectible` (`trade`, `mint`, `burn`, `self`), except `poap`, share the same UMS:
+All types under the tag `collectible` (`transfer`, `trade`, `mint`, `burn`), except `poap`, share the same UMS:
 
 <Tabs>
   <TabItem value="collectible" label="collectible">
@@ -92,22 +102,22 @@ All types under the tag `collectible` (`trade`, `mint`, `burn`, `self`), except 
 {
   "token_id": "3111",
   "token_value": "1",
-  "nft_metadata": { // `nft_metadata` is unpredictable
-    "name": "RSS3 Whitepaper v1.0",
-    "image": "ipfs://bafybeialcb7udgz56dtpzn7dcchujd5jt6jcu7ugg4y32e2jsvg3z477fq/rss3-whitepaper-no-1.png",
-    "attributes": [
-      {
-        "value": "Natural Selection Labs",
-        "trait_type": "Author(s)"
-      },
-      ...
-    ],
-    "description": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
-    "animation_url": "ipfs://bafybeif2wobpdjlkv7k33k2at4agirvmrs5zqa7hm4wvz72teui6bttg7y/rss3-whitepaper-no-1.glb",
-    "external_link": "https://rss3.io/RSS3-Whitepaper.pdf"
-    },
   "token_address": "0xa6f969045641cf486a747a2688f3a5a6d43cd0d8",
-  "token_standard": "ERC-721"
+  "token_standard": "ERC-721",
+  "name": "RSS3 Whitepaper v1.0",
+  "symbol": "RWP",
+  "image": "ipfs://bafybeialcb7udgz56dtpzn7dcchujd5jt6jcu7ugg4y32e2jsvg3z477fq/rss3-whitepaper-no-1.png",
+  "attributes": [
+    {
+      "value": "Natural Selection Labs",
+      "trait_type": "Author(s)"
+    },
+    ...
+  ],
+  "description": "RSS3 Whitepaper v1.0 - Commemorative & Limited Edition",
+  "animation_url": "ipfs://bafybeif2wobpdjlkv7k33k2at4agirvmrs5zqa7hm4wvz72teui6bttg7y/rss3-whitepaper-no-1.glb",
+  "external_link": "https://rss3.io/RSS3-Whitepaper.pdf"
+}
 ```
 
 </TabItem>
@@ -224,7 +234,16 @@ TBA
     "logo": "https://c.gitcoin.co/grants/7f2bdd3cbd59dcaaa1c4b54c5b73a952/ethers-gitcoin.png",
     "title": "ethers.js - Complete, Simple and Tiny",
     "platform": "gitcoin",
-    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem..."
+    "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem...",
+    // here we have the donation value in detail
+    "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+    "name": "Tether USD",
+    "network": "Polygon",
+    "symbol": "USDT",
+    "decimals": 6,
+    "token_value": "28652612",
+    "token_address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "token_standard": "ERC-20"
 }
 ```
 
