@@ -595,10 +595,7 @@
                         "schema": {
                             "properties": {
                                 "global": {
-                                    "items": {
-                                        "$ref": "#/components/schemas/NotesPostGlobalItem"
-                                    },
-                                    "type": "array"
+                                    "$ref": "#/components/schemas/NotesPostGlobalItem"
                                 },
                                 "list": {
                                     "items": {
