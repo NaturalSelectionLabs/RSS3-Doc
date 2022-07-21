@@ -26,9 +26,9 @@ All types under the tag `transaction` (`transfer`, `mint`, `burn`) share the sam
     "network": "Polygon",
     "symbol": "MATIC",
     "decimals": 18,
-    "token_value": "1000000000000000000",
-    "token_address": "0x0000000000000000000000000000000000001010",
-    "token_standard": "ERC-20"
+    "value": "1000000000000000000",
+    "address": "0x0000000000000000000000000000000000001010",
+    "standard": "ERC-20"
 }
 ```
 
@@ -50,9 +50,9 @@ They both follow the same UMS as `transaction`
     "network": "Polygon",
     "symbol": "MATIC",
     "decimals": 18,
-    "token_value": "1000000000000000000",
-    "token_address": "0x0000000000000000000000000000000000001010",
-    "token_standard": "ERC-20"
+    "value": "1000000000000000000",
+    "address": "0x0000000000000000000000000000000000001010",
+    "standard": "ERC-20"
 }
 ```
 
@@ -65,25 +65,25 @@ They both follow the same UMS as `transaction`
 ```json
 {
     "protocol": "Uniswap V2",
-    "token_to": {
-        "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+    "to": {
+        "image": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
         "name": "Tether USD",
         "network": "Polygon",
         "symbol": "USDT",
         "decimals": 6,
-        "token_value": "28652612",
-        "token_address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-        "token_standard": "ERC-20"
+        "value": "28652612",
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "standard": "ERC-20"
     },
-    "token_from": {
-        "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+    "from": {
+        "image": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
         "name": "USD Coin",
         "network": "Polygon",
         "symbol": "USDC",
         "decimals": 6,
         "value": "28622667",
-        "token_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "token_standard": "ERC-20"
+        "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "standard": "ERC-20"
     }
 }
 ```
@@ -100,10 +100,10 @@ All types under the tag `collectible` (`transfer`, `trade`, `mint`, `burn`), exc
 
 ```json
 {
-  "token_id": "3111",
-  "token_value": "1",
-  "token_address": "0xa6f969045641cf486a747a2688f3a5a6d43cd0d8",
-  "token_standard": "ERC-721",
+  "id": 3111,
+  "value": "1",
+  "address": "0xa6f969045641cf486a747a2688f3a5a6d43cd0d8",
+  "standard": "ERC-721",
   "name": "RSS3 Whitepaper v1.0",
   "symbol": "RWP",
   "image": "ipfs://bafybeialcb7udgz56dtpzn7dcchujd5jt6jcu7ugg4y32e2jsvg3z477fq/rss3-whitepaper-no-1.png",
@@ -124,7 +124,43 @@ All types under the tag `collectible` (`transfer`, `trade`, `mint`, `burn`), exc
 
   <TabItem value="collectible_poap" label="poap">
 
-TBA
+```json
+{
+    "id": 5364876,
+    "name": "RSS3 Cancer Meetup - 2022",
+    "image": "https://assets.poap.xyz/rss3-cancer-meetup-2022-2022-logo-1657702983639.png",
+    "symbol": "The Proof of Attendance Protocol",
+    "standard": "ERC-721",
+    "attributes": [
+        {
+            "value": "07-Jul-2022",
+            "trait_type": "endDate"
+        },
+        {
+            "value": "true",
+            "trait_type": "virtualEvent"
+        },
+        {
+            "value": "",
+            "trait_type": "city"
+        },
+        {
+            "value": "",
+            "trait_type": "country"
+        },
+        {
+            "value": "",
+            "trait_type": "eventURL"
+        },
+        {
+            "value": "07-Jul-2022",
+            "trait_type": "startDate"
+        }
+    ],
+    "description": "The RSS3 2022 Q3 Internal Meeting",
+    "contract_address": "0x22c1f6050e56d2876009903609a2cc3fef83b415"
+}
+```
 
 </TabItem>
 
@@ -236,14 +272,16 @@ TBA
     "platform": "gitcoin",
     "description": "The ethers.js library is a complete and compact library for interacting with the Ethereum Blockchains and their ecosystem...",
     // here we have the donation value in detail
-    "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
-    "name": "Tether USD",
-    "network": "Polygon",
-    "symbol": "USDT",
-    "decimals": 6,
-    "token_value": "28652612",
-    "token_address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-    "token_standard": "ERC-20"
+    "token": {
+        "image": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "name": "Tether USD",
+        "network": "Polygon",
+        "symbol": "USDT",
+        "decimals": 6,
+        "value": "10000000",
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "standard": "ERC-20"
+    }
 }
 ```
 
