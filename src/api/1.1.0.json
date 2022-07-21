@@ -29,7 +29,7 @@
                 "operationId": "getNotesByInstance",
                 "parameters": [
                     {
-                        "description": "The address or ENS name of the instance",
+                        "description": "The address or ENS, Crossbell, Lens handle of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -184,7 +184,7 @@
                 "operationId": "getProfileByInstance",
                 "parameters": [
                     {
-                        "description": "The address or ENS name of the instance",
+                        "description": "The address or ENS, Crossbell, Lens handle of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -308,7 +308,7 @@
                         "type": "string"
                     },
                     "metadata": {
-                        "description": "The metadata format varies from different combinations of filtering conditions.",
+                        "description": "The metadata format varies from different combinations of filtering conditions. see [the Unified Metadata Schemas](/docs/next/product/PreGod/unified_metadata_schemas).",
                         "example": "The metadata format varies from different combinations of filtering conditions.",
                         "type": "object"
                     },
