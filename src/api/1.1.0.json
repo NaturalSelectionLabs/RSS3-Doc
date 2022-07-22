@@ -86,10 +86,7 @@
                         "name": "tag",
                         "required": false,
                         "schema": {
-                            "items": {
-                                "$ref": "#/components/schemas/Tags"
-                            },
-                            "type": "array"
+                            "$ref": "#/components/schemas/Tags"
                         }
                     },
                     {
@@ -99,7 +96,10 @@
                         "name": "type",
                         "required": false,
                         "schema": {
-                            "$ref": "#/components/schemas/Types"
+                            "items": {
+                                "$ref": "#/components/schemas/Types"
+                            },
+                            "type": "array"
                         }
                     },
                     {
