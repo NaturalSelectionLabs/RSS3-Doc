@@ -207,13 +207,31 @@ All types under the tag `collectible` (`transfer`, `trade`, `mint`, `burn`), exc
 
 </TabItem>
 
-  <TabItem value="social_profile_follow_unfollow" label="profile/follow/unfollow">
+  <TabItem value="social_profile" label="profile">
 
-`profile` indicates an action of creating a new credential.
+`profile` indicates an action of creating or updating a new credential.
+
+```json
+{
+    "address": "0x...",
+    "bio": "The awesome Henry.",
+    "name": "Henry",
+    // here we can differentiate between creating a new profile or updating an existing one
+    "type": "create",
+    "handle": "Henry",
+    "source": "crossbell",
+    "platform": "",
+    "profile_uri": ["ipfs://QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1021.png"],
+    "banner_uri": [],
+    "social_uri": []
+}
+```
+
+</TabItem>
+
+  <TabItem value="social_follow_unfollow" label="follow/unfollow">
 
 `follow/unfollow` indicates an action of follow/unfollow-ing an existing profile.
-
-Therefore they both follow the same UMS:
 
 ```json
 {
