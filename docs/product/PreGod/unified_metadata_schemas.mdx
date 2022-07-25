@@ -120,6 +120,11 @@ All types under the tag `collectible` (`transfer`, `trade`, `mint`, `burn`), exc
 
   <TabItem value="collectible_poap" label="poap">
 
+Due to the spamming issue, APIs do not return POAPs by default. We provide two ways to include them:
+
+1. Set `include_poap` to true.
+1. Include `poap` in `type`.
+
 ```json
 {
     "id": "5364876",

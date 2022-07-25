@@ -137,6 +137,16 @@
                         "schema": {
                             "$ref": "#/components/schemas/Date"
                         }
+                    },
+                    {
+                        "description": "Whether to include POAPs in the results. This parameter will be overridden if `type` includes poap.",
+                        "example": false,
+                        "in": "query",
+                        "name": "include_poap",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/components/schemas/Include_poap"
+                        }
                     }
                 ],
                 "responses": {
@@ -425,7 +435,6 @@
                     "transfer",
                     "mint",
                     "burn",
-                    "self",
                     "withdraw",
                     "deposit",
                     "swap",
@@ -458,6 +467,12 @@
             },
             "Refresh": {
                 "description": "Whether to trigger a refresh of all Notes on PreGod.",
+                "example": false,
+                "default": false,
+                "type": "boolean"
+            },
+            "Include_poap": {
+                "description": "Whether to include POAPs in the results. This parameter will be overridden if `type` includes poap.",
                 "example": false,
                 "default": false,
                 "type": "boolean"
@@ -518,39 +533,6 @@
                 },
                 "type": "object"
             },
-            "NotesPostListItem": {
-                "properties": {
-                    "address": {
-                        "description": "The list of instance addresses.",
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "tag": {
-                        "$ref": "#/components/schemas/Tags"
-                    },
-                    "type": {
-                        "example": ["post"],
-                        "items": {
-                            "$ref": "#/components/schemas/Types"
-                        },
-                        "type": "array"
-                    },
-                    "network": {
-                        "example": ["arweave"],
-                        "items": {
-                            "$ref": "#/components/schemas/Networks"
-                        },
-                        "type": "array"
-                    },
-                    "platform": {
-                        "example": ["mirror"],
-                        "items": {
-                            "$ref": "#/components/schemas/Platforms"
-                        },
-                        "type": "array"
-                    }
-                },
-                "type": "object"
-            },
             "NotesPostGlobalItem": {
                 "properties": {
                     "address": {
@@ -597,12 +579,6 @@
                                 "global": {
                                     "$ref": "#/components/schemas/NotesPostGlobalItem"
                                 },
-                                "list": {
-                                    "items": {
-                                        "$ref": "#/components/schemas/NotesPostListItem"
-                                    },
-                                    "type": "array"
-                                },
                                 "cursor": {
                                     "$ref": "#/components/schemas/Cursor"
                                 },
@@ -611,6 +587,9 @@
                                 },
                                 "refresh": {
                                     "$ref": "#/components/schemas/Refresh"
+                                },
+                                "include_poap": {
+                                    "$ref": "#/components/schemas/Include_poap"
                                 }
                             }
                         }
