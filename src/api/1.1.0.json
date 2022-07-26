@@ -161,7 +161,7 @@
                         "description": "A valid request."
                     }
                 },
-                "summary": "Get Notes of an instance",
+                "summary": "Get Notes of an Instance",
                 "tags": ["Note"]
             }
         },
@@ -184,13 +184,13 @@
                         "description": "A valid request"
                     }
                 },
-                "summary": "Get Notes by an instance list",
+                "summary": "Get Notes by a list of Instances",
                 "tags": ["Note"]
             }
         },
         "/profiles/{instance}": {
             "get": {
-                "description": "Returns the profiles of an instance.",
+                "description": "Returns a list of Profiles of an Instance.",
                 "operationId": "getProfileByInstance",
                 "parameters": [
                     {
@@ -242,13 +242,13 @@
                         "description": "A valid request."
                     }
                 },
-                "summary": "Get Profiles of an instance",
+                "summary": "Get Profiles of an Instance",
                 "tags": ["Profile"]
             }
         },
         "/platforms/{tag}": {
             "get": {
-                "description": "Returns the platforms of a tag.",
+                "description": "Returns a list of Platforms of a Tag.",
                 "operationId": "getPlatformByTag",
                 "parameters": [
                     {
@@ -274,7 +274,7 @@
                         "description": "A valid request."
                     }
                 },
-                "summary": "Get Platforms of a tag",
+                "summary": "Get Platforms of a Tag",
                 "tags": ["Platform"]
             }
         }
