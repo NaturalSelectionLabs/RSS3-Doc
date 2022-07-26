@@ -587,7 +587,7 @@
                         }
                     }
                 },
-                "description": "Retrieve a list of notes belonging to the supplied list of addresses. `global` and `list` are mutually exclusive. `list` allows filter per address, and may be deprecated in the future.",
+                "description": "Retrieve a list of notes belonging to the supplied list of addresses.",
                 "required": true
             }
         }
