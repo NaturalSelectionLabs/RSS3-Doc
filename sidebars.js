@@ -43,7 +43,6 @@ const sidebars = {
             },
             collapsed: false,
             items: [
-                'product/network',
                 {
                     type: 'category',
                     label: 'PreGod',
