@@ -532,42 +532,6 @@
                     }
                 },
                 "type": "object"
-            },
-            "NotesPostGlobalItem": {
-                "properties": {
-                    "address": {
-                        "description": "The list of instance addresses.",
-                        "items": {
-                            "$ref": "#/components/schemas/Address"
-                        },
-                        "type": "array"
-                    },
-                    "tag": {
-                        "$ref": "#/components/schemas/Tags"
-                    },
-                    "type": {
-                        "example": ["post"],
-                        "items": {
-                            "$ref": "#/components/schemas/Types"
-                        },
-                        "type": "array"
-                    },
-                    "network": {
-                        "example": ["arweave"],
-                        "items": {
-                            "$ref": "#/components/schemas/Networks"
-                        },
-                        "type": "array"
-                    },
-                    "platform": {
-                        "example": ["mirror"],
-                        "items": {
-                            "$ref": "#/components/schemas/Platforms"
-                        },
-                        "type": "array"
-                    }
-                },
-                "type": "object"
             }
         },
         "requestBodies": {
@@ -576,8 +540,36 @@
                     "application/json": {
                         "schema": {
                             "properties": {
-                                "global": {
-                                    "$ref": "#/components/schemas/NotesPostGlobalItem"
+                                "address": {
+                                    "description": "The list of instance addresses.",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Address"
+                                    },
+                                    "type": "array"
+                                },
+                                "tag": {
+                                    "$ref": "#/components/schemas/Tags"
+                                },
+                                "type": {
+                                    "example": ["post"],
+                                    "items": {
+                                        "$ref": "#/components/schemas/Types"
+                                    },
+                                    "type": "array"
+                                },
+                                "network": {
+                                    "example": ["arweave"],
+                                    "items": {
+                                        "$ref": "#/components/schemas/Networks"
+                                    },
+                                    "type": "array"
+                                },
+                                "platform": {
+                                    "example": ["mirror"],
+                                    "items": {
+                                        "$ref": "#/components/schemas/Platforms"
+                                    },
+                                    "type": "array"
                                 },
                                 "cursor": {
                                     "$ref": "#/components/schemas/Cursor"
