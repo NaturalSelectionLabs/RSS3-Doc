@@ -245,6 +245,38 @@
                 "summary": "Get Profiles of an instance",
                 "tags": ["Profile"]
             }
+        },
+        "/platforms/{tag}": {
+            "get": {
+                "description": "Returns the platforms of a tag.",
+                "operationId": "getPlatformByTag",
+                "parameters": [
+                    {
+                        "description": "The tag of the platform. Use `all` to get all platforms.",
+                        "example": "social",
+                        "in": "path",
+                        "name": "tag",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PlatformsResponse"
+                                }
+                            }
+                        },
+                        "description": "A valid request."
+                    }
+                },
+                "summary": "Get Platforms of a tag",
+                "tags": ["Platform"]
+            }
         }
     },
     "components": {
@@ -386,8 +418,28 @@
                 },
                 "type": "object"
             },
+            "Platform": {
+                "properties": {
+                    "name": {
+                        "description": "The name of the platform.",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "$ref": "#/components/schemas/Tags"
+                    },
+                    "type": {
+                        "description": "The type used to differentiate `exchange`.",
+                        "enum": ["CEX", "DEX"],
+                        "type": "string"
+                    },
+                    "network": {
+                        "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "$ref": "#/components/schemas/Networks"
+                    }
+                },
+                "type": "object"
+            },
             "Networks": {
-                "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
                 "enum": [
                     "ethereum",
                     "ethereum_classic",
@@ -478,7 +530,7 @@
                 "type": "boolean"
             },
             "Total": {
-                "description": "The total number of Notes indexed for the instance.",
+                "description": "The total number of items in the response.",
                 "example": 123,
                 "type": "number"
             },
@@ -529,6 +581,21 @@
                     },
                     "result": {
                         "$ref": "#/components/schemas/Result"
+                    }
+                },
+                "type": "object"
+            },
+            "PlatformsResponse": {
+                "properties": {
+                    "total": {
+                        "$ref": "#/components/schemas/Total"
+                    },
+                    "result": {
+                        "description": "The list of platforms for the tag.",
+                        "items": {
+                            "$ref": "#/components/schemas/Platform"
+                        },
+                        "type": "array"
                     }
                 },
                 "type": "object"
