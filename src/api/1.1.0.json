@@ -319,6 +319,11 @@
                         "example": "0x....",
                         "type": "string"
                     },
+                    "owner": {
+                        "description": "The owner of this note in a bidirectional feed.",
+                        "example": "0x...",
+                        "type": "string"
+                    },
                     "network": {
                         "$ref": "#/components/schemas/Networks"
                     },
