@@ -260,6 +260,19 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "description": "For `exchange` only. Filter the platforms by `network`.",
+                        "example": "ethereum",
+                        "in": "query",
+                        "name": "network",
+                        "required": false,
+                        "schema": {
+                            "items": {
+                                "$ref": "#/components/schemas/Networks"
+                            },
+                            "type": "array"
+                        }
                     }
                 ],
                 "responses": {
