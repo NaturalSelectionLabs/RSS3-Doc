@@ -305,10 +305,6 @@
                         "example": "0x...",
                         "type": "string"
                     },
-                    "index": {
-                        "description": "The on-chain log index.",
-                        "type": "number"
-                    },
                     "address_from": {
                         "description": "The transaction initiator.",
                         "example": "0x....",
@@ -353,10 +349,6 @@
                     "type": {
                         "$ref": "#/components/schemas/Types"
                     },
-                    "index": {
-                        "description": "The on-chain log index.",
-                        "type": "number"
-                    },
                     "address_from": {
                         "description": "The transaction initiator.",
                         "example": "0x...",
@@ -364,6 +356,11 @@
                     },
                     "address_to": {
                         "description": "The transaction recipient.",
+                        "example": "0x...",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "The owner of this note in a bidirectional feed.",
                         "example": "0x...",
                         "type": "string"
                     },
