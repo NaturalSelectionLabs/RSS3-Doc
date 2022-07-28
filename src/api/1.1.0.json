@@ -93,7 +93,7 @@
                         }
                     },
                     {
-                        "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
+                        "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/datasource#list-of-tags-and-corresponding-types).",
                         "example": ["mint", "swap"],
                         "in": "query",
                         "name": "type",
@@ -106,7 +106,7 @@
                         }
                     },
                     {
-                        "description": "Filter notes by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "description": "Filter notes by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/datasource#list-of-network).",
                         "example": "crossbell",
                         "in": "query",
                         "name": "network",
@@ -207,7 +207,7 @@
                         }
                     },
                     {
-                        "description": "Filter profiles by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "description": "Filter profiles by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/datasource#list-of-network).",
                         "example": "crossbell",
                         "in": "query",
                         "name": "network",
@@ -331,7 +331,7 @@
                         "$ref": "#/components/schemas/Networks"
                     },
                     "platform": {
-                        "description": "The platform that generated the action. There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms).",
+                        "description": "The platform that generated the action. There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/datasource#list-of-platforms).",
                         "$ref": "#/components/schemas/Platforms"
                     },
                     "tag": {
@@ -376,7 +376,7 @@
                         "type": "string"
                     },
                     "metadata": {
-                        "description": "The metadata format varies from different combinations of filtering conditions. see [the Unified Metadata Schemas](/docs/next/product/PreGod/unified_metadata_schemas).",
+                        "description": "The metadata format varies from different combinations of filtering conditions. see [the Unified Metadata Schemas](/docs/product/PreGod/unified_metadata_schemas).",
                         "example": "The metadata format varies from different combinations of filtering conditions.",
                         "type": "object"
                     },
@@ -459,7 +459,7 @@
                         "type": "string"
                     },
                     "network": {
-                        "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/introduction#list-of-network).",
+                        "description": "The network where the transaction took place. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/datasource#list-of-network).",
                         "$ref": "#/components/schemas/Networks"
                     }
                 },
@@ -483,7 +483,7 @@
                 "type": "string"
             },
             "Platforms": {
-                "description": "There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/introduction#list-of-platforms). When `platform` is unknown, the transaction's `network` is used.",
+                "description": "There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/datasource#list-of-platforms). When `platform` is unknown, the transaction's `network` is used.",
                 "enum": [
                     "mirror",
                     "lens",
@@ -508,7 +508,7 @@
                 "type": "string"
             },
             "Types": {
-                "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
+                "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/datasource#list-of-tags-and-corresponding-types).",
                 "enum": [
                     "transfer",
                     "mint",
