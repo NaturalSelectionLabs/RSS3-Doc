@@ -1,6 +1,18 @@
 Henry:
   name: Henry
-  title: Lead Dev @ RSS3
+  title: Lead Dev
   email: henry@rss3.io
   url: https://github.com/henryqw
-  image_url: https://lh3.googleusercontent.com/_TIdjmTTDeqD4O7tslAw0_BoWSL9Oqw5zL-o0G8OL9BXzzmZvmQ7urInrE85nC-SgbbEKSakx4j97dNmvQRykDlSiK8qxJ9nkOW8rA=w600
+  image_url: https://ipfs.rss3.page/ipfs/QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1021.png
+Kally:
+  name: Kally
+  title: Dev
+  email: kallydev@rss3.io
+  url: https://github.com/kallydev
+  image_url: https://ipfs.rss3.page/ipfs/QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/856.png
+Polebug:
+  name: Polebug
+  title: Lead Dev
+  email: polebug@rss3.io
+  url: https://github.com/polebug
+  image_url: https://ipfs.rss3.page/ipfs/QmSX9QiwjTGBk5m22UscTg3vrbMwUfFsmxVzMH57hkPD5U/1097.png
