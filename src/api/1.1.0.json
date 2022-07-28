@@ -81,17 +81,20 @@
                     },
                     {
                         "description": "Filter notes by tags.",
-                        "example": "Transaction",
+                        "example": ["exchange", "transaction"],
                         "in": "query",
                         "name": "tag",
                         "required": false,
                         "schema": {
-                            "$ref": "#/components/schemas/Tags"
+                            "items": {
+                                "$ref": "#/components/schemas/Tags"
+                            },
+                            "type": "array"
                         }
                     },
                     {
                         "description": "Filter notes by type. Based on the `tag`, the available types are different, see [the table](/docs/product/PreGod/introduction#list-of-tags-and-corresponding-types).",
-                        "example": "Transfer",
+                        "example": ["mint", "swap"],
                         "in": "query",
                         "name": "type",
                         "required": false,
@@ -537,7 +540,7 @@
             },
             "Address": {
                 "description": "A 0x address or an ENS name",
-                "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
+                "example": "0x000000a52a03835517e9d193b3c27626e1bc96b1",
                 "type": "string"
             },
             "Refresh": {
@@ -559,14 +562,14 @@
             },
             "Cursor": {
                 "description": "The cursor of the current request.",
-                "example": "0x...",
-                "type": "string"
+                "type": "string",
+                "example": ""
             },
             "Limit": {
-                "default": 1000,
+                "default": 500,
                 "description": "Limit the number of notes returned.",
-                "example": 10,
-                "maximum": 1000,
+                "example": 500,
+                "maximum": 500,
                 "type": "number"
             },
             "Result": {
@@ -638,24 +641,28 @@
                                     "type": "array"
                                 },
                                 "tag": {
-                                    "$ref": "#/components/schemas/Tags"
+                                    "example": ["exchange"],
+                                    "items": {
+                                        "$ref": "#/components/schemas/Tags"
+                                    },
+                                    "type": "array"
                                 },
                                 "type": {
-                                    "example": ["post"],
+                                    "example": ["swap", "transfer"],
                                     "items": {
                                         "$ref": "#/components/schemas/Types"
                                     },
                                     "type": "array"
                                 },
                                 "network": {
-                                    "example": ["arweave"],
+                                    "example": ["polygon"],
                                     "items": {
                                         "$ref": "#/components/schemas/Networks"
                                     },
                                     "type": "array"
                                 },
                                 "platform": {
-                                    "example": ["mirror"],
+                                    "example": ["uniswap"],
                                     "items": {
                                         "$ref": "#/components/schemas/Platforms"
                                     },
