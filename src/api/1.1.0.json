@@ -29,7 +29,7 @@
                 "operationId": "getNotesByInstance",
                 "parameters": [
                     {
-                        "description": "The address or ENS, Crossbell, Lens handle of the instance",
+                        "description": "The address or ENS handle of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -107,7 +107,7 @@
                     },
                     {
                         "description": "Filter notes by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/datasource#list-of-network).",
-                        "example": "crossbell",
+                        "example": "ethereum",
                         "in": "query",
                         "name": "network",
                         "required": false,
@@ -120,7 +120,7 @@
                     },
                     {
                         "description": "Filter notes by platforms.",
-                        "example": "crossbell",
+                        "example": "arweave",
                         "in": "query",
                         "name": "platform",
                         "required": false,
@@ -197,7 +197,7 @@
                 "operationId": "getProfileByInstance",
                 "parameters": [
                     {
-                        "description": "The address or ENS, Crossbell, Lens handle of the instance",
+                        "description": "The address or ENS handle of the instance",
                         "example": "0x000000A52a03835517E9d193B3c27626e1Bc96b1",
                         "in": "path",
                         "name": "instance",
@@ -208,7 +208,7 @@
                     },
                     {
                         "description": "Filter profiles by networks. Based on the `network`, the available `tags` are different, see [the table](/docs/product/PreGod/datasource#list-of-network).",
-                        "example": "crossbell",
+                        "example": "ethereum",
                         "in": "query",
                         "name": "network",
                         "required": false,
@@ -221,7 +221,7 @@
                     },
                     {
                         "description": "Filter profiles by platforms.",
-                        "example": "crossbell",
+                        "example": "ethereum",
                         "in": "query",
                         "name": "platform",
                         "required": false,
@@ -478,7 +478,6 @@
                     "optimism",
                     "fantom",
                     "avalanche",
-                    "crossbell"
                 ],
                 "type": "string"
             },
@@ -486,12 +485,10 @@
                 "description": "There are many platforms supported by PreGod, see [the full list](/docs/product/PreGod/datasource#list-of-platforms). When `platform` is unknown, the transaction's `network` is used.",
                 "enum": [
                     "mirror",
-                    "lens",
                     "gitcoin",
                     "snapshot",
                     "uniswap",
                     "binance",
-                    "crossbell"
                 ],
                 "type": "string"
             },
@@ -516,15 +513,9 @@
                     "withdraw",
                     "deposit",
                     "swap",
-                    "trade",
                     "poap",
                     "post",
-                    "comment",
-                    "share",
                     "profile",
-                    "follow",
-                    "unfollow",
-                    "like",
                     "propose",
                     "vote",
                     "launch",
